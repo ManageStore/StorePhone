@@ -1,4 +1,4 @@
-package com.example.managestorephone.ui.slideshow;
+package com.example.managestorephone.ui.sell;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,24 +12,25 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.managestorephone.R;
-import com.example.managestorephone.databinding.FragmentSlideshowBinding;
+import com.example.managestorephone.databinding.FragmentHistoryBinding;
+import com.example.managestorephone.databinding.FragmentSellBinding;
+import com.example.managestorephone.ui.history.HistoryViewModel;
 
-public class SlideshowFragment extends Fragment {
+public class SellFragment extends Fragment {
 
-    private SlideshowViewModel slideshowViewModel;
-    private FragmentSlideshowBinding binding;
+    private SellViewModel sellViewModel;
+    private FragmentSellBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                new ViewModelProvider(this).get(SlideshowViewModel.class);
+        sellViewModel =
+                new ViewModelProvider(this).get(SellViewModel.class);
 
-        binding = FragmentSlideshowBinding.inflate(inflater, container, false);
+        binding = FragmentSellBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textSlideshow;
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        final TextView textView = binding.textSell;
+        sellViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
