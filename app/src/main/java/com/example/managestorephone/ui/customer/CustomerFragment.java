@@ -1,4 +1,4 @@
-package com.example.managestorephone.ui.gallery;
+package com.example.managestorephone.ui.customer;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,24 +12,23 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.managestorephone.R;
-import com.example.managestorephone.databinding.FragmentGalleryBinding;
+import com.example.managestorephone.databinding.FragmentCustomerBinding;
 
-public class GalleryFragment extends Fragment {
+public class CustomerFragment extends Fragment {
 
-    private GalleryViewModel galleryViewModel;
-    private FragmentGalleryBinding binding;
+    private CustomerViewModel customerViewModel;
+    private FragmentCustomerBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        galleryViewModel =
-                new ViewModelProvider(this).get(GalleryViewModel.class);
+        customerViewModel =
+                new ViewModelProvider(this).get(CustomerViewModel.class);
 
-        binding = FragmentGalleryBinding.inflate(inflater, container, false);
+        binding = FragmentCustomerBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textGallery;
-        galleryViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        final TextView textView = binding.textCustomer;
+        customerViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
