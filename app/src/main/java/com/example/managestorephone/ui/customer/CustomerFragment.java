@@ -16,24 +16,14 @@ import com.example.managestorephone.databinding.FragmentCustomerBinding;
 
 public class CustomerFragment extends Fragment {
 
-    private CustomerViewModel customerViewModel;
     private FragmentCustomerBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        customerViewModel =
-                new ViewModelProvider(this).get(CustomerViewModel.class);
 
         binding = FragmentCustomerBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textCustomer;
-        customerViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
         return root;
     }
 
