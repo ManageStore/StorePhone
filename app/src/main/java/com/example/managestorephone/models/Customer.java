@@ -1,4 +1,4 @@
-package com.example.managestorephone;
+package com.example.managestorephone.models;
 
 public class Customer {
     private int MaKH;

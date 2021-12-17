@@ -1,4 +1,4 @@
-package com.example.managestorephone;
+package com.example.managestorephone.Adapter;
 
 import android.content.Context;
 
@@ -10,6 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+import com.example.managestorephone.R;
+import com.example.managestorephone.models.Customer;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.managestorephone.Product;
+package com.example.managestorephone.models;
 
 public class product {
 

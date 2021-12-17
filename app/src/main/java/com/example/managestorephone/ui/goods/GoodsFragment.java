@@ -1,19 +1,13 @@
 package com.example.managestorephone.ui.goods;
 
 import android.os.Bundle;
-import android.view.GestureDetector;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,10 +16,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.managestorephone.MainActivity;
-import com.example.managestorephone.Product.ProductListAdapter;
-import com.example.managestorephone.Product.RecyclerViewAdapter;
-import com.example.managestorephone.Product.product;
+import com.example.managestorephone.Adapter.BrandAdapter;
+import com.example.managestorephone.Adapter.ProductListAdapter;
+import com.example.managestorephone.Adapter.RecyclerViewAdapter;
+import com.example.managestorephone.models.Brand;
+import com.example.managestorephone.models.product;
 import com.example.managestorephone.R;
 import com.example.managestorephone.databinding.FragmentGoodsBinding;
 
@@ -41,27 +36,29 @@ public class GoodsFragment extends Fragment {
     private FragmentGoodsBinding binding;
 
     String url = "http://192.168.1.8/android_TH/product.php";
+    String urlBrand = "http://192.168.1.8/android_TH/brand.php";
+
+    List<Brand> brandList;
     List<product> listProduct;
-    RecyclerView recyclerView;
-    ProductListAdapter productListAdapter;
+    RecyclerView recyclerView,recyclerView2;
     String hinhAnh="HinhAnh";
     String ten = "TenSP";
     String soluong = "SoLuong";
     String giaban = "GiaBan";
     String maSP = "MaSP";
-    JsonArrayRequest request;
-    RequestQueue requestQueue;
-    View view;
-    int RecyclerViewPosition;
-    RecyclerView.LayoutManager layoutManager;
-    RecyclerView.Adapter recyclerViewAdapter;
-    ArrayList<String> ImageTitle;
+    JsonArrayRequest request,request2;
+    RequestQueue requestQueue,requestQueue2;
+    RecyclerView.LayoutManager layoutManager,layoutManager2;
+    RecyclerView.Adapter recyclerViewAdapter,recyclerViewAdapter2;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         binding = FragmentGoodsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+        brandList = new ArrayList<>();
+        recyclerView2 = (RecyclerView) root.findViewById(R.id.rec_hangdienthoai);
 
         listProduct = new ArrayList<>();
         recyclerView = (RecyclerView) root.findViewById(R.id.rec_dienthoai);
@@ -70,7 +67,11 @@ public class GoodsFragment extends Fragment {
         layoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
 
+        layoutManager2 = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
+        recyclerView2.setLayoutManager(layoutManager2);
+
         call_json();
+        call_json2();
 
 //        recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener(){
 //
@@ -142,6 +143,42 @@ public class GoodsFragment extends Fragment {
         requestQueue = Volley.newRequestQueue(getActivity());
         requestQueue.add(request);
     }
+
+    private void call_json2() {
+
+        request2 = new JsonArrayRequest(urlBrand, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+
+                for (int i=0;i<response.length();i++){
+                    Brand getBrand = new Brand();
+                    JSONObject jsonObject = null;
+                    try {
+                        jsonObject = response.getJSONObject(i);
+
+                        getBrand.setTenhang(jsonObject.getString("TenHang"));
+
+                        getBrand.setHinhAnhhang(jsonObject.getString("hinhAnh"));
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    brandList.add(getBrand);
+                }
+                recyclerViewAdapter2 = new BrandAdapter(getActivity(),brandList);
+                recyclerView2.setAdapter(recyclerViewAdapter2);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        }
+        );
+        requestQueue2 = Volley.newRequestQueue(getActivity());
+        requestQueue2.add(request2);
+    }
+
 
 
     @Override

@@ -1,4 +1,4 @@
-package com.example.managestorephone.Product;
+package com.example.managestorephone.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
 import com.example.managestorephone.R;
+import com.example.managestorephone.models.product;
 
 import java.text.NumberFormat;
 import java.util.List;
