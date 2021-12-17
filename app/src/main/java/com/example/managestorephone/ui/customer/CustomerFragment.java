@@ -1,11 +1,15 @@
 package com.example.managestorephone.ui.customer;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,9 +43,13 @@ public class CustomerFragment extends Fragment {
     private FragmentCustomerBinding binding;
 
     String url = "http://192.168.1.7:8080/ManageStore/Customer.php";
-    List<Customer> customerList;
+     List<Customer> customerList;
     RecyclerView recyclerView;
     CustomerListAdapter customerListAdapter;
+    EditText searchEdit;
+
+
+
 
     JsonArrayRequest request;
     RequestQueue requestQueue;
@@ -63,7 +71,7 @@ public class CustomerFragment extends Fragment {
 
         layoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
-
+        recyclerView.setAdapter(recyclerViewAdapter);
         call_json();
 
 //        recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener(){
@@ -94,8 +102,44 @@ public class CustomerFragment extends Fragment {
 //
 //            }
 //        });
+
+        searchEdit =(EditText) root.findViewById(R.id.id_search_customer);
+
+        searchEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+
+            }
+        });
         return root;
     }
+
+    private void filter(String text) {
+        List<Customer> filteredList = new ArrayList<>();
+
+        for (Customer item : customerList) {
+            if (item.getHoTen().toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(item);
+
+            }
+        }
+
+//        recyclerViewAdapter = new CustomerListAdapter(customerList,getActivity());
+        customerListAdapter.filterList(filteredList);
+
+
+    }
+
 
     @Override
     public void onDestroyView() {
@@ -114,24 +158,20 @@ public class CustomerFragment extends Fragment {
                     JSONObject jsonObject = null;
                     try {
                         jsonObject = response.getJSONObject(i);
-
                         geCustomerAdapter.setHoTen(jsonObject.getString("HoTen"));
                         geCustomerAdapter.setSDT(jsonObject.getString("SDT"));
                         geCustomerAdapter.setMaKH(jsonObject.getInt("MaKH"));
                         geCustomerAdapter.setDiaChi(jsonObject.getString("DiaChi"));
 
-
-
-
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                     customerList.add(geCustomerAdapter);
-                    Toast.makeText(getActivity(), "ok", Toast.LENGTH_SHORT).show();
+
                 }
-                recyclerViewAdapter = new CustomerListAdapter(customerList,getActivity());
-                recyclerView.setAdapter(recyclerViewAdapter);
-                Toast.makeText(getActivity(), "ok", Toast.LENGTH_SHORT).show();
+                customerListAdapter = new CustomerListAdapter(customerList,getActivity());
+                recyclerView.setAdapter(customerListAdapter);
+
             }
         }, new Response.ErrorListener() {
             @Override

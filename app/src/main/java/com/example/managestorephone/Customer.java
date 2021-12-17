@@ -6,6 +6,8 @@ public class Customer {
     private String DiaChi;
     private String SDT;
 
+
+
     public int getMaKH() {
         return MaKH;
     }

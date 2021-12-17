@@ -5,12 +5,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F3F3F3"
-    tools:context=".ui.customer.CustomerFragment">
+    tools:context=".ui.customer.CustomerFragment"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <EditText
+            android:id="@+id/id_search_customer"
+            android:layout_width="311dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/background_edit"
+            android:drawableLeft="@drawable/ic_seach"
+            android:drawablePadding="3dp"
+            android:elevation="3dp"
+            android:hint="Tìm kiêm theo tên"
+            android:padding="10dp" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="5dp"
+            android:background="#5B6CD5"
+            android:layout_marginTop="4dp"
+            android:text="Thêm"
+            android:layout_height="50dp"/>
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

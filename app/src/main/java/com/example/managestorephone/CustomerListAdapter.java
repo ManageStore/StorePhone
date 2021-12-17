@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -58,6 +59,11 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
             numberMobile = (TextView) itemView.findViewById(R.id.numberMobile);
 
         }
+    }
+
+    public void filterList(List<Customer> filteredList) {
+        customers = filteredList;
+        notifyDataSetChanged();
     }
 }
 
