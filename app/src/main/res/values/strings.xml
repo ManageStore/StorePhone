@@ -14,4 +14,5 @@
     <string name="menu_logout">Đăng xuất</string>
     <string name="menu_setting">Cài đặt</string>
     <string name="menu_customer">Khách hàng</string>
+    <string name="preLoginState">Loginstate</string>
 </resources>

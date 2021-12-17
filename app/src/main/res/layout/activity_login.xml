@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3DA68E"
+    tools:context=".LoginActivity"
+    android:orientation="vertical">
+
+<!--    <ImageView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:src="@drawable/bgrsign"-->
+<!--        android:layout_height="wrap_content" />-->
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Đăng Nhập"
+            android:fontFamily="@font/lato_bold"
+            android:textColor="@color/black"
+            android:textFontWeight="700"
+            android:textSize="28dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="340dp"
+            android:layout_height="62dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:fontFamily="@font/lato_regular"
+            android:text="Vui lòng nhập thông tin của bạn dưới đây vào
+để đăng nhập vào tài khoản của bạn"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="357dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/labelEmail"
+            android:layout_width="369dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Tên đăng nhập"
+            android:fontFamily="@font/lato_regular"
+            android:textFontWeight="700"
+            android:textSize="17dp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputLayout
+                app:startIconDrawable="@drawable/ic_gmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:background="@drawable/edit_radius"
+                    android:id="@+id/txtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="357dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/labelPass"
+            android:layout_width="369dp"
+            android:fontFamily="@font/lato_regular"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Mật Khẩu"
+            android:textFontWeight="700"
+            android:textSize="17dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputLayout
+                app:passwordToggleEnabled="true"
+                app:startIconDrawable="@drawable/ic_lock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:background="@drawable/edit_radius"
+                    android:id="@+id/txtPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </RelativeLayout>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nhớ mật khẩu"
+            android:id="@+id/cbBox"
+            android:textSize="15sp"
+            android:fontFamily="@font/lato_regular"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="5dp"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSignin"
+        android:layout_width="365dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="70dp"
+        android:text="Đăng Nhập"
+        android:textAllCaps="false"
+        android:fontFamily="@font/lato_bold"
+        android:background="@drawable/button_dn"
+        android:textColor="@color/white"/>
+
+</LinearLayout>
