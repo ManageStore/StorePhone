@@ -12,7 +12,6 @@
         android:theme="@style/Theme.ManageStorePhone.AppBarOverlay">
 
         <androidx.appcompat.widget.Toolbar
-            android:gravity="center"
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
