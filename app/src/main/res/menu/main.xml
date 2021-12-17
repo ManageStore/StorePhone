@@ -7,6 +7,7 @@
         android:title="@string/action_settings"
         app:showAsAction="never" />
     <item
-        android:orderInCategory="101"
-        android:title="Item" />
+        android:id="@+id/nav_customer"
+        android:icon="@drawable/ic_customer"
+        android:title="Thêm" />
 </menu>
