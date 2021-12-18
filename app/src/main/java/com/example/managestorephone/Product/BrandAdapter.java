@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.managestorephone.R;
-import com.example.managestorephone.ViewProductActivity;
 
 import java.util.List;
 
@@ -46,7 +45,7 @@ public class BrandAdapter extends RecyclerView.Adapter<BrandAdapter.ViewHolder> 
         holder.imgHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, ViewProductActivity.class);
+//                Intent intent = new Intent(context, ViewProductActivity.class);
             }
         });
     }

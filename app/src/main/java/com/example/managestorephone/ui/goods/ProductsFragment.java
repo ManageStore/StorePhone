@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,7 +23,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.managestorephone.FirstFragment;
 import com.example.managestorephone.Product.BrandAdapter;
 import com.example.managestorephone.Product.ProductListAdapter;
 import com.example.managestorephone.Product.Brand;
@@ -40,13 +41,14 @@ import java.util.List;
 
 public class ProductsFragment extends Fragment {
 
-    private FragmentProductsBinding binding;
+     FragmentProductsBinding binding;
 
     String url = "http://192.168.1.12/android_TH/product.php";
     String urlBrand = "http://192.168.1.12/android_TH/brand.php";
 
     EditText searchEdit;
     ProductListAdapter productListAdapter;
+    Button add_product;
 
     List<Brand> brandList;
     List<product> listProduct;
@@ -66,6 +68,22 @@ public class ProductsFragment extends Fragment {
 
         binding = FragmentProductsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+        binding.addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ProductDetailFragment productDetailFragment= new ProductDetailFragment();
+
+                FragmentTransaction fragmentTransaction=getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.nav_host_fragment_content_main,productDetailFragment);
+
+                fragmentTransaction.commit();
+
+
+            }
+        });
+
+
 
         brandList = new ArrayList<>();
         recyclerView2 = (RecyclerView) root.findViewById(R.id.rec_hangdienthoai);
@@ -131,18 +149,17 @@ public class ProductsFragment extends Fragment {
             }
         });
 
+
+
+
         return root;
     }
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.addProduct.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(ProductsFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
-            }
-        });
+
+
+
     }
 
     private void filter(String text) {
@@ -191,7 +208,7 @@ public class ProductsFragment extends Fragment {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_SHORT).show();
             }
         }
         );
@@ -226,7 +243,7 @@ public class ProductsFragment extends Fragment {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_SHORT).show();
             }
         }
         );

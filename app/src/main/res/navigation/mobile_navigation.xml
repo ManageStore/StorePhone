@@ -34,5 +34,10 @@
         android:name="com.example.managestorephone.ui.history.HistoryFragment"
         android:label="@string/menu_history"
         tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/nav_productdetail"
+        android:name="com.example.managestorephone.ui.goods.ProductDetailFragment"
+        android:label="Thong Tin Chi Tiet"
+        tools:layout="@layout/fragment_productdetail" />
 
 </navigation>

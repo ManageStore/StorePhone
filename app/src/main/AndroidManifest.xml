@@ -15,11 +15,6 @@
         android:theme="@style/Theme.ManageStorePhone"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".ViewProductActivity"
-            android:exported="true"
-            android:label="@string/title_activity_view_product"
-            android:theme="@style/Theme.ManageStorePhone.NoActionBar" />
-        <activity
             android:name=".LoginActivity"
             android:exported="true" />
         <activity
