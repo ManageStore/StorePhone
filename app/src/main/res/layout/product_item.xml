@@ -6,7 +6,7 @@
     android:layout_marginBottom="5dp"
     android:layout_height="wrap_content">
 
-    <com.android.volley.toolbox.NetworkImageView
+    <ImageView
         android:id="@+id/imageviewAnh"
         android:layout_width="80dp"
         android:layout_height="80dp"
