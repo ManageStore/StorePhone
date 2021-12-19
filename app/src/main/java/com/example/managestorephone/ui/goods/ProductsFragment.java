@@ -1,5 +1,6 @@
 package com.example.managestorephone.ui.goods;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -29,6 +30,7 @@ import com.example.managestorephone.Product.Brand;
 import com.example.managestorephone.Product.product;
 
 import com.example.managestorephone.R;
+import com.example.managestorephone.ViewDetailProduct;
 import com.example.managestorephone.databinding.FragmentProductsBinding;
 
 
@@ -57,6 +59,7 @@ public class ProductsFragment extends Fragment {
     String ten = "TenSP";
     String soluong = "SoLuong";
     String giaban = "GiaBan";
+    String gianhap = "GiaNhap";
     String maSP = "MaSP";
     JsonArrayRequest request,request2;
     RequestQueue requestQueue,requestQueue2;
@@ -72,18 +75,18 @@ public class ProductsFragment extends Fragment {
         binding.addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ProductDetailFragment productDetailFragment= new ProductDetailFragment();
+//                ProductDetailFragment productDetailFragment= new ProductDetailFragment();
+//
+//                FragmentTransaction fragmentTransaction=getFragmentManager().beginTransaction();
+//                fragmentTransaction.replace(R.id.nav_host_fragment_content_main,productDetailFragment);
+//
+//                fragmentTransaction.commit();
 
-                FragmentTransaction fragmentTransaction=getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.nav_host_fragment_content_main,productDetailFragment);
-
-                fragmentTransaction.commit();
+                startActivity(new Intent(getContext(), AddProductActivity.class));
 
 
             }
         });
-
-
 
         brandList = new ArrayList<>();
         recyclerView2 = (RecyclerView) root.findViewById(R.id.rec_hangdienthoai);
@@ -157,9 +160,6 @@ public class ProductsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
-
-
     }
 
     private void filter(String text) {
@@ -194,6 +194,7 @@ public class ProductsFragment extends Fragment {
                         getProduct.setMaSP(jsonObject.getString(maSP));
                         getProduct.setSoluong(jsonObject.getInt(soluong));
                         getProduct.setGiaban(jsonObject.getInt(giaban));
+                        getProduct.setGianhap(jsonObject.getInt(gianhap));
 
                         getProduct.setHinhAnh(jsonObject.getString(hinhAnh));
 

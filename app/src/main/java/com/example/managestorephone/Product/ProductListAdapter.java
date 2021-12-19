@@ -11,10 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.NetworkImageView;
 import com.bumptech.glide.Glide;
-import com.example.managestorephone.DetailProduct;
+import com.example.managestorephone.ViewDetailProduct;
 import com.example.managestorephone.R;
 
 import java.text.NumberFormat;
@@ -25,7 +23,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
 
     Context context;
     List<product> products;
-    String gia_format;
+    String gia_format,gianhap_format;
 
     public ProductListAdapter(List<product> getProductAdapter, Context context) {
         super();
@@ -55,10 +53,13 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         gia_format= NumberFormat.getNumberInstance(Locale.US).format(products.get(position).getGiaban());
         holder.giaban.setText(gia_format+"đ");
 
+        gianhap_format= NumberFormat.getNumberInstance(Locale.US).format(products.get(position).getGianhap());
+        holder.gianhap.setText(gianhap_format+"đ");
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, DetailProduct.class);
+                Intent intent = new Intent(context, ViewDetailProduct.class);
                 intent.putExtra("detail",products.get(position));
                 context.startActivity(intent);
             }
@@ -71,7 +72,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView ten,mahang,soluong,giaban;
+        public TextView ten,mahang,soluong,giaban,gianhap;
         public ImageView imaHinhAnh;
 
         public ViewHolder(@NonNull View itemView) {
@@ -80,6 +81,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
             mahang = (TextView) itemView.findViewById(R.id.masp);
             soluong = (TextView) itemView.findViewById(R.id.soluong);
             giaban = (TextView) itemView.findViewById(R.id.giaban);
+            gianhap = (TextView) itemView.findViewById(R.id.gianhap);
             imaHinhAnh = (ImageView) itemView.findViewById(R.id.imageviewAnh);
         }
     }

@@ -15,13 +15,13 @@ import com.example.managestorephone.Product.product;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-public class DetailProduct extends AppCompatActivity {
+public class ViewDetailProduct extends AppCompatActivity {
 
     product Product=null;
 
     ImageView imgProduct;
-    TextView tvTen,tvGia,tvSoluong;
-    String gia_format;
+    TextView tvTen,tvGia,tvGiaNhap,tvSoluong;
+    String gia_format,gianhap_format;
     Toolbar toolbar;
 
     @Override
@@ -42,6 +42,7 @@ public class DetailProduct extends AppCompatActivity {
         tvTen = (TextView)findViewById(R.id.detail_ten);
         tvSoluong = (TextView) findViewById(R.id.detail_soluong);
         tvGia = (TextView) findViewById(R.id.detail_gia);
+        tvGiaNhap = (TextView) findViewById(R.id.detail_gianhap);
 
         if (Product != null){
             Glide.with(getApplicationContext()).load(Product.getHinhAnh()).into(imgProduct);
@@ -49,6 +50,8 @@ public class DetailProduct extends AppCompatActivity {
             tvSoluong.setText(String.valueOf(Product.getSoluong()));
             gia_format= NumberFormat.getNumberInstance(Locale.US).format(Product.getGiaban());
             tvGia.setText(gia_format+"đ");
+            gianhap_format= NumberFormat.getNumberInstance(Locale.US).format(Product.getGianhap());
+            tvGiaNhap.setText(gianhap_format+"đ");
         }
 
     }
