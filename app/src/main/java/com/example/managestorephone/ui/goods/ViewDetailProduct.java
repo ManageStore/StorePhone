@@ -34,6 +34,7 @@ import com.bumptech.glide.Glide;
 import com.example.managestorephone.MainActivity;
 import com.example.managestorephone.Product.product;
 import com.example.managestorephone.R;
+import com.example.managestorephone.utils.Utils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -65,9 +66,9 @@ public class ViewDetailProduct extends AppCompatActivity {
     Bitmap bitmap;
     Menu action;
 
-    String url_edit = "http://192.168.1.6/android_TH/upload_detail_product.php";
-    String url_edit_img = "http://192.168.1.6/android_TH/upload_img_product.php";
-    String url_del_product = "http://192.168.1.6/android_TH/deleteproduct.php";
+    String url_edit = Utils.BASE_URL+"upload_detail_product.php";
+    String url_edit_img = Utils.BASE_URL+"android_TH/upload_img_product.php";
+    String url_del_product = Utils.BASE_URL+"/deleteproduct.php";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

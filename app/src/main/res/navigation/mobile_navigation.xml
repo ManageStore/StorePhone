@@ -34,10 +34,18 @@
         android:name="com.example.managestorephone.ui.history.HistoryFragment"
         android:label="@string/menu_history"
         tools:layout="@layout/fragment_history" />
+
     <fragment
+<<<<<<< HEAD
         android:id="@+id/nav_productdetail"
         android:name="com.example.managestorephone.ui.goods.ProductDetailFragment"
         android:label="Thong Tin Chi Tiet"
         tools:layout="@layout/activity_addproduct" />
+=======
+        android:id="@+id/nav_list_search_product"
+        android:name="com.example.managestorephone.ui.sell.ListSearchProductFragment"
+        android:label="Chọn Sản Phẩm"
+        tools:layout="@layout/fragment_productdetail" />
+>>>>>>> dev6
 
 </navigation>

@@ -1,23 +1,22 @@
-package com.example.managestorephone.ui.customer;
+package com.example.managestorephone.ui.sell;
+
 
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
-import android.view.GestureDetector;
+
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.TextView;
+
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,9 +27,11 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.managestorephone.Customer;
 import com.example.managestorephone.CustomerListAdapter;
+import com.example.managestorephone.Order.CustomerListSearchAdapter;
+import com.example.managestorephone.Order.ProductListSearchAdapter;
 import com.example.managestorephone.R;
-import com.example.managestorephone.databinding.FragmentCustomerBinding;
-import com.example.managestorephone.utils.Utils;
+
+import com.example.managestorephone.databinding.FragmentListSearchCustomerBinding;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,15 +40,15 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerFragment extends Fragment {
+public class ListSearchCustomerFragment extends Fragment {
 
-    private FragmentCustomerBinding binding;
+    private FragmentListSearchCustomerBinding binding;
 
-    String url = Utils.BASE_URL+"android_TH/Customer.php";
+    String url = "http://192.168.1.7:8080/android_TH/Customer.php";
 
     List<Customer> customerList;
     RecyclerView recyclerView;
-    CustomerListAdapter customerListAdapter;
+    CustomerListSearchAdapter customerListSearchAdapter;
     EditText searchEdit;
 
     JsonArrayRequest request;
@@ -62,7 +63,7 @@ public class CustomerFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        binding = FragmentCustomerBinding.inflate(inflater, container, false);
+        binding = FragmentListSearchCustomerBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         customerList = new ArrayList<>();
         recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
@@ -107,7 +108,7 @@ public class CustomerFragment extends Fragment {
         }
 
 //        recyclerViewAdapter = new CustomerListAdapter(customerList,getActivity());
-        customerListAdapter.filterList(filteredList);
+        customerListSearchAdapter.filterList(filteredList);
 
 
     }
@@ -141,8 +142,8 @@ public class CustomerFragment extends Fragment {
                     customerList.add(geCustomerAdapter);
 
                 }
-                customerListAdapter = new CustomerListAdapter(customerList,getActivity());
-                recyclerView.setAdapter(customerListAdapter);
+                customerListSearchAdapter = new CustomerListSearchAdapter(customerList,getActivity());
+                recyclerView.setAdapter(customerListSearchAdapter);
 
             }
         }, new Response.ErrorListener() {

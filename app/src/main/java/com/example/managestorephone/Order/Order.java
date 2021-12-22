@@ -1,15 +1,29 @@
-package com.example.managestorephone.Product;
+package com.example.managestorephone.Order;
 
-import java.io.Serializable;
-
-public class product implements Serializable {
-
+public class Order {
+    private int maSP;
     private String tenSP;
     private String hinhAnh;
     private int soluong;
-    private int gianhap;
-    private int giaban;
-    private int maSP;
+    private int giasp;
+    private int tong;
+
+//    public Order(int maSP, String tenSP, String hinhAnh, int soluong, int giasp) {
+//        this.maSP = maSP;
+
+    public int getTong() {
+        return tong;
+    }
+
+    public void setTong(int tong) {
+        this.tong = tong;
+    }
+//        this.tenSP = tenSP;
+//        this.hinhAnh = hinhAnh;
+//        this.soluong = soluong;
+//        this.giasp = giasp;
+//    }
+
 
     public int getMaSP() {
         return maSP;
@@ -43,21 +57,11 @@ public class product implements Serializable {
         this.soluong = soluong;
     }
 
-    public int getGianhap() {
-        return gianhap;
+    public int getGiaSP() {
+        return giasp;
     }
 
-    public void setGianhap(int gianhap) {
-        this.gianhap = gianhap;
+    public void setGiaSP(int giasp) {
+        this.giasp = giasp;
     }
-
-    public int getGiaban() {
-        return giaban;
-    }
-
-    public void setGiaban(int giaban) {
-        this.giaban = giaban;
-    }
-
-
 }

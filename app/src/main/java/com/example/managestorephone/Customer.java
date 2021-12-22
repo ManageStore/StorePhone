@@ -1,6 +1,8 @@
 package com.example.managestorephone;
 
-public class Customer {
+import java.io.Serializable;
+
+public class Customer implements Serializable {
     private int MaKH;
     private String HoTen;
     private String DiaChi;

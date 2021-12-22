@@ -35,6 +35,7 @@ import com.example.managestorephone.MainActivity;
 import com.example.managestorephone.Product.Brand;
 import com.example.managestorephone.Product.product;
 import com.example.managestorephone.R;
+import com.example.managestorephone.utils.Utils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -60,9 +61,9 @@ public class ViewDetailBrand extends AppCompatActivity {
     Menu action;
     Bitmap bitmap;
 
-    String url_edit_hang = "http://192.168.1.6/android_TH/upload_detail_brand.php";
-    String url_edit_img_hang = "http://192.168.1.6/android_TH/upload_img_brand.php";
-    String url_del_brand = "http://192.168.1.6/android_TH/deletebrand.php";
+    String url_edit_hang = Utils.BASE_URL+"android_TH/upload_detail_brand.php";
+    String url_edit_img_hang = Utils.BASE_URL+"android_TH/upload_img_brand.php";
+    String url_del_brand = Utils.BASE_URL+"android_TH/deletebrand.php";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

@@ -32,6 +32,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.managestorephone.Product.Brand;
 import com.example.managestorephone.R;
+import com.example.managestorephone.utils.Utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -74,9 +75,11 @@ public class AddProductActivity extends AppCompatActivity {
     boolean check = true;
     String mahang;
     String namePhone,thuonghieu,soluong,giaban,gianhap;
-    String urlPath = "http://192.168.1.6/android_TH/AddProduct.php";
-    String urlSelectBrand = "http://192.168.1.6/android_TH/brand.php";
-    String urlSelected = "http://192.168.1.6/android_TH/brandSelect.php";
+
+    String urlPath = Utils.BASE_URL+"android_TH/AddProduct.php";
+    String urlSelectBrand = Utils.BASE_URL+"android_TH/brand.php";
+    String urlSelected = Utils.BASE_URL+"android_TH/brandSelect.php";
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

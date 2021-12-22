@@ -1,4 +1,4 @@
-package com.example.managestorephone.ui.goods;
+package com.example.managestorephone.ui.sell;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,15 +20,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.managestorephone.Product.BrandAdapter;
-import com.example.managestorephone.Product.ProductListAdapter;
+import com.example.managestorephone.Order.ProductListSearchAdapter;
 import com.example.managestorephone.Product.Brand;
 import com.example.managestorephone.Product.product;
-
 import com.example.managestorephone.R;
-import com.example.managestorephone.databinding.FragmentProductsBinding;
+import com.example.managestorephone.databinding.FragmentListSearchProductBinding;
+import com.example.managestorephone.ui.goods.AddProductActivity;
 import com.example.managestorephone.utils.Utils;
-
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,24 +35,20 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductsFragment extends Fragment {
-    FragmentProductsBinding binding;
 
-////<<<<<<< HEAD
-//     FragmentProductsBinding binding;
+public class ListSearchProductFragment extends Fragment {
+private FragmentListSearchProductBinding binding;
 
-//     String urlBase = "http://192.168.1.6/";
-//    String url = "http://192.168.1.6/android_TH/product.php";
-//    String urlBrand = "http://192.168.1.6/android_TH/brand.php";
-//=======
+
+
     String urlBase= Utils.BASE_URL;
     String url = Utils.BASE_URL+"android_TH/product.php";
-    String urlBrand = Utils.BASE_URL+"android_TH/brand.php";
-//>>>>>>> dev6
+
 
     EditText searchEdit;
-    ProductListAdapter productListAdapter;
+    ProductListSearchAdapter productListSearchAdapter;
     Button add_product;
+
 
     List<Brand> brandList;
     List<product> listProduct;
@@ -65,21 +59,22 @@ public class ProductsFragment extends Fragment {
     String giaban = "GiaBan";
     String gianhap = "GiaNhap";
     String maSP = "MaSP";
-    JsonArrayRequest request,request2;
-    RequestQueue requestQueue,requestQueue2;
-    RecyclerView.LayoutManager layoutManager,layoutManager2;
-    RecyclerView.Adapter recyclerViewAdapter,recyclerViewAdapter2;
+    JsonArrayRequest request;
+    RequestQueue requestQueue;
+    RecyclerView.LayoutManager layoutManager;
+    RecyclerView.Adapter recyclerViewAdapter;
+
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        binding = FragmentProductsBinding.inflate(inflater, container, false);
+        binding = FragmentListSearchProductBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        binding.tvAddProduct.setOnClickListener(new View.OnClickListener() {
+        binding.addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
 
                 startActivity(new Intent(getContext(), AddProductActivity.class));
 
@@ -87,34 +82,12 @@ public class ProductsFragment extends Fragment {
             }
         });
 
-        binding.tvaddBrandProduct.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                startActivity(new Intent(getContext(), AddBrandProductActivity.class));
-
-
-            }
-        });
-
-        brandList = new ArrayList<>();
-        recyclerView2 = (RecyclerView) root.findViewById(R.id.rec_hangdienthoai);
-
         listProduct = new ArrayList<>();
         recyclerView = (RecyclerView) root.findViewById(R.id.rec_dienthoai);
         recyclerView.setHasFixedSize(true);
-
         layoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
-
-        layoutManager2 = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
-        recyclerView2.setLayoutManager(layoutManager2);
-
         call_json();
-        call_jsonBrand();
-
-
-
         searchEdit = (EditText) root.findViewById(R.id.id_search_product);
         searchEdit.addTextChangedListener(new TextWatcher() {
             @Override
@@ -133,14 +106,12 @@ public class ProductsFragment extends Fragment {
             }
         });
 
-
-
-
         return root;
     }
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 
     private void filter(String text) {
@@ -154,7 +125,7 @@ public class ProductsFragment extends Fragment {
         }
 
 //        recyclerViewAdapter = new CustomerListAdapter(customerList,getActivity());
-        productListAdapter.filterList(filteredList);
+        productListSearchAdapter.filterList(filteredList);
 
     }
 
@@ -184,8 +155,8 @@ public class ProductsFragment extends Fragment {
                     }
                     listProduct.add(getProduct);
                 }
-                productListAdapter = new ProductListAdapter(listProduct,getActivity());
-                recyclerView.setAdapter(productListAdapter);
+                productListSearchAdapter = new ProductListSearchAdapter(listProduct,getActivity());
+                recyclerView.setAdapter(productListSearchAdapter);
             }
         }, new Response.ErrorListener() {
             @Override
@@ -198,47 +169,7 @@ public class ProductsFragment extends Fragment {
         requestQueue.add(request);
     }
 
-    private void call_jsonBrand() {
-
-        request2 = new JsonArrayRequest(urlBrand, new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
-
-                for (int i=0;i<response.length();i++){
-                    Brand getBrand = new Brand();
-                    JSONObject jsonObject = null;
-                    try {
-                        jsonObject = response.getJSONObject(i);
-
-                        getBrand.setTenhang(jsonObject.getString("TenHang"));
-                        getBrand.setMahang(Integer.parseInt(jsonObject.getString("MaHang")));
-
-                        getBrand.setHinhAnhhang(urlBase.concat(jsonObject.getString("hinhAnh")));
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    brandList.add(getBrand);
-                }
-                recyclerViewAdapter2 = new BrandAdapter(getActivity(),brandList);
-                recyclerView2.setAdapter(recyclerViewAdapter2);
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-//                Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_SHORT).show();
-            }
-        }
-        );
-        requestQueue2 = Volley.newRequestQueue(getActivity());
-        requestQueue2.add(request2);
-    }
 
 
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
-    }
 }
