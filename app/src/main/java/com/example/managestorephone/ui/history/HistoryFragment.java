@@ -132,6 +132,7 @@ public class HistoryFragment extends Fragment {
                         getHistoryAdapter.setHoTen(jsonObject.getString("HoTen"));
                         getHistoryAdapter.setMaHD(jsonObject.getInt("MaHD"));
                         getHistoryAdapter.setMaKH(jsonObject.getInt("MaKH"));
+                        getHistoryAdapter.setSDT(jsonObject.getString("SDT"));
                         getHistoryAdapter.setDonGia(jsonObject.getInt("DonGia"));
                         getHistoryAdapter.setNgayBan(jsonObject.getString("NgayBan"));
 

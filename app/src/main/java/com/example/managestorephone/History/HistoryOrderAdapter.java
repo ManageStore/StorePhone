@@ -1,6 +1,8 @@
 package com.example.managestorephone.History;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,7 @@ import com.example.managestorephone.Customer;
 import com.example.managestorephone.Order.Order;
 import com.example.managestorephone.Order.OrderAdapter;
 import com.example.managestorephone.R;
+import com.example.managestorephone.ui.history.ViewDetailsHistoryOrder;
 import com.example.managestorephone.ui.sell.SellFragment;
 
 import java.text.NumberFormat;
@@ -48,6 +51,15 @@ public class HistoryOrderAdapter extends RecyclerView.Adapter<HistoryOrderAdapte
         holder.NgayBan.setText(String.valueOf(historyOrder.getNgayBan()));
         dongia_format = NumberFormat.getNumberInstance(Locale.US).format(historyOrder.getDonGia());
         holder.DonGia.setText(dongia_format + "đ");
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, ViewDetailsHistoryOrder.class);
+                intent.putExtra("detailOrder", historyOrders.get(position));
+                context.startActivity(intent);
+            }
+        });
     }
     @Override
     public int getItemCount() {

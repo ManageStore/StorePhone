@@ -16,18 +16,13 @@ import com.example.managestorephone.R;
 import com.example.managestorephone.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
-
     private FragmentHomeBinding binding;
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
         return root;
     }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();

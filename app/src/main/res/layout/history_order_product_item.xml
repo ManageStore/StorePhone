@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:background="@drawable/customer_item_bc"
+    android:layout_marginTop="5dp"
+    android:padding="10dp"
+    android:paddingBottom="5dp"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/TenSP"
+                android:layout_width="334dp"
+                android:layout_height="match_parent"
+
+                android:text="Iphone 13"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/SoLuong"
+                    android:layout_width="166dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignParentRight="true"
+                    android:gravity="center|right"
+                    android:text="x12"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/MaSP"
+            android:layout_width="223dp"
+            android:layout_height="match_parent"
+
+            android:text="SP0001"
+
+            android:textSize="16dp" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/giatong"
+                android:layout_width="166dp"
+                android:layout_height="wrap_content"
+
+                android:layout_alignParentRight="true"
+                android:gravity="center|right"
+                android:text="1000.000d"
+
+                android:textColor="#1EA114"
+                android:textSize="16dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+
+
+
+
+
+
+</LinearLayout>

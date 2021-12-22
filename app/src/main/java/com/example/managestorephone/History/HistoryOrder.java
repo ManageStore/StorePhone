@@ -1,10 +1,21 @@
 package com.example.managestorephone.History;
 
-public class HistoryOrder {
+import java.io.Serializable;
+
+public class HistoryOrder implements Serializable {
     private int MaHD;
     private int MaKH;
     private String HoTen;
+    private String SDT;
     private int DonGia;
+
+    public String getSDT() {
+        return SDT;
+    }
+
+    public void setSDT(String SDT) {
+        this.SDT = SDT;
+    }
 
     public int getMaHD() {
         return MaHD;

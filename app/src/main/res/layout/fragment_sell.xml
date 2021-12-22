@@ -107,12 +107,6 @@
 
 
     </LinearLayout>
-<!--        <TextView-->
-<!--            android:id="@+id/productlist"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:gravity="center"-->
-<!--            android:text="Chọn Sản Phẩm" />-->
 
 
     <androidx.recyclerview.widget.RecyclerView

@@ -70,6 +70,7 @@
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/activity_addbrand.xml" value="0.13333333333333333" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/activity_addproduct.xml" value="0.13333333333333333" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/activity_detail_brand.xml" value="0.13333333333333333" />
+        <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/activity_detail_history_order.xml" value="0.25416666666666665" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/activity_detail_product.xml" value="0.13333333333333333" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/activity_list_search_product.xml" value="0.13020833333333334" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/activity_login.xml" value="0.13333333333333333" />
@@ -90,6 +91,7 @@
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/fragment_products.xml" value="0.13020833333333334" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/fragment_sell.xml" value="0.264" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/history_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/history_order_product_item.xml" value="0.25416666666666665" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/nav_header_main.xml" value="0.13020833333333334" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/order_item.xml" value="0.264" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/menu/activity_main_drawer.xml" value="0.25416666666666665" />
