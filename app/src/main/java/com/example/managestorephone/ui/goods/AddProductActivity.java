@@ -63,7 +63,7 @@ public class AddProductActivity extends AppCompatActivity {
     Bitmap bitmap;
     boolean check = true;
     String namePhone,thuonghieu,soluong,giaban,gianhap;
-    String urlPath = "http://192.168.1.12/android_TH/AddProduct.php";
+    String urlPath = "http://192.168.1.7:8080/android_TH/AddProduct.php";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

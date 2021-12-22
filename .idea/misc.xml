@@ -62,15 +62,28 @@
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/drawable/ic_report.xml" value="0.2703125" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/drawable/ic_sell.xml" value="0.2703125" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/drawable/ic_setting.xml" value="0.2703125" />
+        <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/activity_list_search_product.xml" value="0.13020833333333334" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/app_bar_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/brand_item.xml" value="0.25416666666666665" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/content_main.xml" value="0.25416666666666665" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/customer_item.xml" value="0.4" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/fragment_customer.xml" value="0.25416666666666665" />
+        <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/fragment_detail_product.xml" value="0.13020833333333334" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/fragment_goods.xml" value="0.25416666666666665" />
+        <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/fragment_history.xml" value="0.2111111111111111" />
+        <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/fragment_list_search_cusomer.xml" value="0.25416666666666665" />
+        <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/fragment_list_search_product.xml" value="0.13020833333333334" />
+        <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/fragment_productdetail.xml" value="0.13020833333333334" />
+        <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/fragment_products.xml" value="0.13020833333333334" />
+        <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/fragment_sell.xml" value="0.264" />
+        <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/history_item.xml" value="0.25416666666666665" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/nav_header_main.xml" value="0.13020833333333334" />
+        <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/order_item.xml" value="0.264" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/menu/activity_main_drawer.xml" value="0.25416666666666665" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/menu/main.xml" value="0.25416666666666665" />
+        <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/menu/menu_action.xml" value="0.13020833333333334" />
       </map>
     </option>
   </component>

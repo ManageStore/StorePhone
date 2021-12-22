@@ -3,6 +3,7 @@ package com.example.managestorephone;
 import android.os.Bundle;
 import android.view.Menu;
 
+import com.example.managestorephone.utils.Utils;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.navigation.NavController;
@@ -14,10 +15,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.managestorephone.databinding.ActivityMainBinding;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +29,12 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        if(Utils.manggiohang ==null)
+        {
+            Utils.manggiohang = new ArrayList<>();
+        }
+
 
         setSupportActionBar(binding.appBarMain.toolbar);
 

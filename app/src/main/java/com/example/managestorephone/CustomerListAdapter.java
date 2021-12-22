@@ -36,8 +36,6 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
     @Override
     public void onBindViewHolder(@NonNull CustomerListAdapter.ViewHolder holder, int position) {
         Customer customer = customers.get(position);
-
-
         holder.avtata.setText(customer.getHoTen().charAt(0)+"");
         holder.nameCustomer.setText(customer.getHoTen());
         holder.numberMobile.setText(customer.getSDT());
