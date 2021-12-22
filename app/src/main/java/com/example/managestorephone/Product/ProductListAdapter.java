@@ -46,11 +46,9 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
                         .getHinhAnh())
                 .into(holder.imaHinhAnh);
 
-//<<<<<<< HEAD
-//        holder.masp.setText(products.get(position).getMaSP());
-//=======
+
         holder.masp.setText(String.valueOf(products.get(position).getMaSP()));
-//>>>>>>> dev6
+
         holder.ten.setText(products.get(position).getTenSP());
         holder.soluong.setText(String.valueOf(products.get(position).getSoluong()));
 

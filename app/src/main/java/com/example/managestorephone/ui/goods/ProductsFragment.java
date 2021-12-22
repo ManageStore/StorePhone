@@ -40,17 +40,11 @@ import java.util.List;
 public class ProductsFragment extends Fragment {
     FragmentProductsBinding binding;
 
-////<<<<<<< HEAD
-//     FragmentProductsBinding binding;
 
-//     String urlBase = "http://192.168.1.6/";
-//    String url = "http://192.168.1.6/android_TH/product.php";
-//    String urlBrand = "http://192.168.1.6/android_TH/brand.php";
-//=======
     String urlBase= Utils.BASE_URL;
     String url = Utils.BASE_URL+"android_TH/product.php";
     String urlBrand = Utils.BASE_URL+"android_TH/brand.php";
-//>>>>>>> dev6
+
 
     EditText searchEdit;
     ProductListAdapter productListAdapter;
