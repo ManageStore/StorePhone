@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.goods.ViewDetailProduct">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarbrand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#32C3A6"
+        app:title="Detailed Brand" />
+
+    <ImageView
+        android:id="@+id/hinhhang"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:src="@drawable/oppo"/>
+
+    <TextView
+        android:background="#0079CA"
+        android:id="@+id/tvupdateImg"
+        android:textColor="#ffffff"
+        android:layout_gravity="center"
+        android:text="Sửa ảnh"
+        android:textSize="18sp"
+        android:fontFamily="@font/lato_regular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Tên điện thoại"
+            android:fontFamily="@font/lato_regular"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgProduct" />
+
+        <EditText
+            android:background="@null"
+            android:focusableInTouchMode="false"
+            android:id="@+id/detail_tenhang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/lato_regular"
+            android:text="iPhone 13"
+            android:textSize="22sp" />
+
+        <TextView
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:text="1"
+            android:id="@+id/detail_mahang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/deleteBr"
+        android:background="#FF5722"
+        android:layout_marginTop="40dp"
+        android:text="Xóa"
+        android:textColor="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+
+</LinearLayout>

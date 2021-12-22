@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
 
     String Name,Password;
     SharedPreferences sharedPreferences;
-    String url = "http://192.168.1.8/android_TH/UserLogin.php";
+    String url = "http://192.168.1.6/android_TH/UserLogin.php";
     SessionManager sessionManager;
 
     @Override

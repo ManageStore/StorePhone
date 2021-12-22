@@ -12,8 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.managestorephone.ViewDetailProduct;
 import com.example.managestorephone.R;
+import com.example.managestorephone.ui.goods.ViewDetailProduct;
 
 import java.text.NumberFormat;
 import java.util.List;
@@ -46,7 +46,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
                         .getHinhAnh())
                 .into(holder.imaHinhAnh);
 
-        holder.mahang.setText(products.get(position).getMaSP());
+        holder.masp.setText(products.get(position).getMaSP());
         holder.ten.setText(products.get(position).getTenSP());
         holder.soluong.setText(String.valueOf(products.get(position).getSoluong()));
 
@@ -72,13 +72,13 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView ten,mahang,soluong,giaban,gianhap;
+        public TextView ten,masp,soluong,giaban,gianhap;
         public ImageView imaHinhAnh;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ten = (TextView) itemView.findViewById(R.id.name);
-            mahang = (TextView) itemView.findViewById(R.id.masp);
+            masp = (TextView) itemView.findViewById(R.id.masp);
             soluong = (TextView) itemView.findViewById(R.id.soluong);
             giaban = (TextView) itemView.findViewById(R.id.giaban);
             gianhap = (TextView) itemView.findViewById(R.id.gianhap);

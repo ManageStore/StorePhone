@@ -1,7 +1,6 @@
 package com.example.managestorephone.ui.goods;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -9,28 +8,34 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
-import com.example.managestorephone.MainActivity;
+import com.android.volley.toolbox.Volley;
+import com.example.managestorephone.Product.Brand;
 import com.example.managestorephone.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -40,10 +45,10 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Method;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -55,33 +60,83 @@ public class AddProductActivity extends AppCompatActivity {
 
     Toolbar toolbar1;
     Button btnLuu;
-    EditText txttendt,txtthuonghieu,txtsoluong,txtgiaban,txtgianhap;
-    TextView tvThemAnh;
+    Spinner spinner;
+    EditText txttendt,txtsoluong,txtgiaban,txtgianhap;
+    TextView tvThemAnh,tvmabrand;
     CircleImageView imgPhone;
+
+    ArrayList<String> brandList = new ArrayList<>();
+    ArrayAdapter<String> brandAdapter;
+    RequestQueue requestQueue;
 
     ProgressDialog progressDialog;
     Bitmap bitmap;
     boolean check = true;
+    String mahang;
     String namePhone,thuonghieu,soluong,giaban,gianhap;
-    String urlPath = "http://192.168.1.12/android_TH/AddProduct.php";
+    String urlPath = "http://192.168.1.6/android_TH/AddProduct.php";
+    String urlSelectBrand = "http://192.168.1.6/android_TH/brand.php";
+    String urlSelected = "http://192.168.1.6/android_TH/brandSelect.php";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_productdetail);
+        setContentView(R.layout.activity_addproduct);
 
         toolbar1 = findViewById(R.id.toolbarAdd);
         setSupportActionBar(toolbar1);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         txttendt = (EditText) findViewById(R.id.txttendt);
-        txtthuonghieu = (EditText) findViewById(R.id.txtthuonghieu);
         txtsoluong = (EditText) findViewById(R.id.txtsoluong);
         txtgiaban = (EditText) findViewById(R.id.txtgianban);
         txtgianhap = (EditText) findViewById(R.id.txtgianhap);
         tvThemAnh = (TextView) findViewById(R.id.addImg);
+        tvmabrand = (TextView) findViewById(R.id.mabrand);
         imgPhone = (CircleImageView) findViewById(R.id.image_phone);
         btnLuu = (Button) findViewById(R.id.buttonLuu);
+
+        requestQueue = Volley.newRequestQueue(this);
+        spinner = (Spinner)findViewById(R.id.spinner);
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.POST, urlSelectBrand, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        for (int i=0;i<response.length();i++){
+
+                            Brand getBrand = new Brand();
+                            JSONObject jsonObject = null;
+
+                            try {
+                                jsonObject = response.getJSONObject(i);
+
+                                String nameBrand = jsonObject.getString("TenHang");
+
+                                brandList.add(nameBrand);
+                                brandAdapter = new ArrayAdapter<>(AddProductActivity.this,
+                                        android.R.layout.simple_spinner_item,brandList);
+                                brandAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                                spinner.setAdapter(brandAdapter);
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }
+        );
+        requestQueue.add(jsonArrayRequest);
+
+//        thuonghieu = spinner.getSelectedItem().toString();
+        spinner.setOnItemSelectedListener(selectBrand);
+
 
         tvThemAnh.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,16 +155,17 @@ public class AddProductActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+
                 namePhone = txttendt.getText().toString();
-                thuonghieu = txtthuonghieu.getText().toString();
                 soluong = txtsoluong.getText().toString();
                 giaban = txtgiaban.getText().toString();
                 gianhap = txtgianhap.getText().toString();
+                mahang = tvmabrand.getText().toString();
+
 
                 addProductFunction();
 
                 txttendt.setText(null);
-                txtthuonghieu.setText(null);
                 txtsoluong.setText(null);
                 txtgiaban.setText(null);
                 txtgianhap.setText(null);
@@ -118,6 +174,54 @@ public class AddProductActivity extends AppCompatActivity {
         });
 
     }
+    private AdapterView.OnItemSelectedListener selectBrand =new AdapterView.OnItemSelectedListener() {
+        @Override
+        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+            if(i > 0){
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, urlSelected, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                            try {
+                                JSONArray jsonArray = new JSONArray(response);
+                                for (int i=0;i<response.length();i++){
+                                    JSONObject object = jsonArray.getJSONObject(i);
+                                    String maBrand = object.getString("MaHang");
+
+                                    tvmabrand.setText(maBrand);
+                                }
+
+
+                                } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                    }
+                }
+                ){
+                    @Nullable
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String,String> param = new HashMap<>();
+                        param.put("TenHang",spinner.getSelectedItem().toString());
+
+                        return param;
+                    }
+                };
+                RequestQueue requestQueue = Volley.newRequestQueue(AddProductActivity.this);
+                requestQueue.add(stringRequest);
+            }
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> adapterView) {
+
+        }
+    };
+
 
     @Override
     protected void onActivityResult(int RC, int RQC, Intent I) {
@@ -147,10 +251,6 @@ public class AddProductActivity extends AppCompatActivity {
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStreamObject);
         byte[] byteArrayVar = byteArrayOutputStreamObject.toByteArray();
         final String ConvertImage = Base64.encodeToString(byteArrayVar, Base64.DEFAULT);
-
-//        final ProgressDialog progressDialog = new ProgressDialog(this);
-//        progressDialog.setMessage("Uploading...");
-//        progressDialog.show();
 
         class AsyncTaskUploadClass extends AsyncTask<Void,Void,String>{
 
@@ -183,7 +283,7 @@ public class AddProductActivity extends AppCompatActivity {
                 params.put("SoLuong",soluong);
                 params.put("GiaBan",giaban);
                 params.put("GiaNhap",gianhap);
-                params.put("MaHang",thuonghieu);
+                params.put("MaHang",mahang);
 
                 params.put("HinhAnh",ConvertImage);
 
@@ -287,4 +387,6 @@ public class AddProductActivity extends AppCompatActivity {
 
         return stringBuilderObject.toString();
     }
+
+
 }

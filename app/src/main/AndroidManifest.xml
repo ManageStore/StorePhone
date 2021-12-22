@@ -19,11 +19,19 @@
             android:name=".LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".ViewDetailProduct"
+            android:name=".ui.goods.AddProductActivity"
             android:theme="@style/Theme.ManageStorePhone.NoActionBar"
             android:exported="true" />
         <activity
-            android:name=".ui.goods.AddProductActivity"
+            android:name=".ui.goods.AddBrandProductActivity"
+            android:theme="@style/Theme.ManageStorePhone.NoActionBar"
+            android:exported="true" />
+        <activity
+            android:name=".ui.goods.ViewDetailProduct"
+            android:theme="@style/Theme.ManageStorePhone.NoActionBar"
+            android:exported="true" />
+        <activity
+            android:name=".ui.goods.ViewDetailBrand"
             android:theme="@style/Theme.ManageStorePhone.NoActionBar"
             android:exported="true" />
         <activity

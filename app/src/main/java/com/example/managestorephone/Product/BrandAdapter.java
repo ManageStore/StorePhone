@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.managestorephone.R;
+import com.example.managestorephone.ui.goods.ViewDetailBrand;
+import com.example.managestorephone.ui.goods.ViewDetailProduct;
 
 import java.util.List;
 
@@ -41,11 +43,14 @@ public class BrandAdapter extends RecyclerView.Adapter<BrandAdapter.ViewHolder> 
                         .getHinhAnhhang())
                 .into(holder.imgHang);
         holder.name.setText(brandList.get(position).getTenhang());
+        holder.tvmahang.setText(String.valueOf(brandList.get(position).getMahang()));
 
-        holder.imgHang.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(context, ViewProductActivity.class);
+                Intent intent = new Intent(context, ViewDetailBrand.class);
+                intent.putExtra("detailBrand",brandList.get(position));
+                context.startActivity(intent);
             }
         });
     }
@@ -58,12 +63,13 @@ public class BrandAdapter extends RecyclerView.Adapter<BrandAdapter.ViewHolder> 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imgHang;
-        TextView name;
+        TextView name,tvmahang;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imgHang = (ImageView) itemView.findViewById(R.id.imgHang);
             name = (TextView) itemView.findViewById(R.id.name);
+            tvmahang = (TextView) itemView.findViewById(R.id.tvmahang);
         }
     }
 }

@@ -34,12 +34,22 @@
             android:src="@drawable/ic_phone"
             app:civ_border_width="1dp"
             app:civ_border_color="#FF000000" />
+
         <TextView
             android:id="@+id/addImg"
             android:textColor="#0079CA"
             android:layout_gravity="center"
             android:text="Thêm ảnh"
             android:textSize="18sp"
+            android:fontFamily="@font/lato_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:textColor="#E3E3E0"
+            android:text="1"
+            android:textSize="18sp"
+            android:id="@+id/mabrand"
             android:fontFamily="@font/lato_regular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -89,12 +99,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-            <EditText
-                android:id="@+id/txtthuonghieu"
-                android:layout_marginLeft="22dp"
-                android:hint="Thương hiệu"
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_marginLeft="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+
+<!--            <EditText-->
+<!--                android:id="@+id/txtthuonghieu"-->
+<!--                android:layout_marginLeft="22dp"-->
+<!--                android:hint="Thương hiệu"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"/>-->
 
         </LinearLayout>
 

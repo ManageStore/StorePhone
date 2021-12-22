@@ -24,5 +24,17 @@
         android:textSize="18dp"
         android:fontFamily="@font/lato_regular" />
 
+    <TextView
+        android:layout_below="@id/imgHang"
+        android:layout_toEndOf="@id/name"
+        android:id="@+id/tvmahang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:text="1"
+        android:textSize="18dp"
+        android:fontFamily="@font/lato_regular" />
+
+
 
 </RelativeLayout>

@@ -1,16 +1,19 @@
 package com.example.managestorephone.Product;
 
-public class Brand {
+import java.io.Serializable;
 
+public class Brand implements Serializable {
+
+    private int mahang;
     private String tenhang;
     private String hinhAnhhang;
 
-    public Brand() {
+    public int getMahang() {
+        return mahang;
     }
 
-    public Brand(String tenhang, String hinhAnhhang) {
-        this.tenhang = tenhang;
-        this.hinhAnhhang = hinhAnhhang;
+    public void setMahang(int mahang) {
+        this.mahang = mahang;
     }
 
     public String getTenhang() {

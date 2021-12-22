@@ -9,13 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,7 +26,6 @@ import com.example.managestorephone.Product.Brand;
 import com.example.managestorephone.Product.product;
 
 import com.example.managestorephone.R;
-import com.example.managestorephone.ViewDetailProduct;
 import com.example.managestorephone.databinding.FragmentProductsBinding;
 
 
@@ -45,8 +40,9 @@ public class ProductsFragment extends Fragment {
 
      FragmentProductsBinding binding;
 
-    String url = "http://192.168.1.12/android_TH/product.php";
-    String urlBrand = "http://192.168.1.12/android_TH/brand.php";
+     String urlBase = "http://192.168.1.6/";
+    String url = "http://192.168.1.6/android_TH/product.php";
+    String urlBrand = "http://192.168.1.6/android_TH/brand.php";
 
     EditText searchEdit;
     ProductListAdapter productListAdapter;
@@ -72,17 +68,21 @@ public class ProductsFragment extends Fragment {
         binding = FragmentProductsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        binding.addButton.setOnClickListener(new View.OnClickListener() {
+        binding.tvAddProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                ProductDetailFragment productDetailFragment= new ProductDetailFragment();
-//
-//                FragmentTransaction fragmentTransaction=getFragmentManager().beginTransaction();
-//                fragmentTransaction.replace(R.id.nav_host_fragment_content_main,productDetailFragment);
-//
-//                fragmentTransaction.commit();
 
                 startActivity(new Intent(getContext(), AddProductActivity.class));
+
+
+            }
+        });
+
+        binding.tvaddBrandProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(getContext(), AddBrandProductActivity.class));
 
 
             }
@@ -104,35 +104,6 @@ public class ProductsFragment extends Fragment {
         call_json();
         call_jsonBrand();
 
-//        recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener(){
-//
-//            GestureDetector gestureDetector = new GestureDetector(getActivity(),new GestureDetector.SimpleOnGestureListener(){
-//                @Override
-//                public boolean onSingleTapUp(MotionEvent e) {
-//                    return true;
-//                }
-//            });
-//            @Override
-//            public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
-//                view = rv.findChildViewUnder(e.getX(),e.getY());
-//                if(view != null && gestureDetector.onTouchEvent(e)){
-//                    RecyclerViewPosition = rv.getChildAdapterPosition(view);
-//
-//                    Toast.makeText(getActivity(), ImageTitle.get(RecyclerViewPosition), Toast.LENGTH_SHORT).show();
-//                }
-//                return false;
-//            }
-//
-//            @Override
-//            public void onTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
-//
-//            }
-//
-//            @Override
-//            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-//
-//            }
-//        });
 
         searchEdit = (EditText) root.findViewById(R.id.id_search_product);
         searchEdit.addTextChangedListener(new TextWatcher() {
@@ -196,7 +167,7 @@ public class ProductsFragment extends Fragment {
                         getProduct.setGiaban(jsonObject.getInt(giaban));
                         getProduct.setGianhap(jsonObject.getInt(gianhap));
 
-                        getProduct.setHinhAnh(jsonObject.getString(hinhAnh));
+                        getProduct.setHinhAnh(urlBase.concat(jsonObject.getString(hinhAnh)));
 
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -230,8 +201,9 @@ public class ProductsFragment extends Fragment {
                         jsonObject = response.getJSONObject(i);
 
                         getBrand.setTenhang(jsonObject.getString("TenHang"));
+                        getBrand.setMahang(Integer.parseInt(jsonObject.getString("MaHang")));
 
-                        getBrand.setHinhAnhhang(jsonObject.getString("hinhAnh"));
+                        getBrand.setHinhAnhhang(urlBase.concat(jsonObject.getString("hinhAnh")));
 
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -253,13 +225,6 @@ public class ProductsFragment extends Fragment {
     }
 
 
-
-//    public void replaceFragment(Fragment someFragment) {
-//        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-//        transaction.replace(R.id.contentFrame, someFragment);
-//        transaction.addToBackStack(null);
-//        transaction.commit();
-//    }
 
     @Override
     public void onDestroyView() {
