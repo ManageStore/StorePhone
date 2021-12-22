@@ -42,7 +42,7 @@ private FragmentListSearchProductBinding binding;
 
 
     String urlBase= Utils.BASE_URL;
-    String url = Utils.BASE_URL+"android_TH/product.php";
+    String url = Utils.BASE_URL+"android_TH/product/product.php";
 
 
     EditText searchEdit;

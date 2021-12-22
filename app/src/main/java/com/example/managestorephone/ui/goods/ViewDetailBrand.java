@@ -61,9 +61,9 @@ public class ViewDetailBrand extends AppCompatActivity {
     Menu action;
     Bitmap bitmap;
 
-    String url_edit_hang = Utils.BASE_URL+"android_TH/upload_detail_brand.php";
-    String url_edit_img_hang = Utils.BASE_URL+"android_TH/upload_img_brand.php";
-    String url_del_brand = Utils.BASE_URL+"android_TH/deletebrand.php";
+    String url_edit_hang = Utils.BASE_URL+"android_TH/brand/upload_detail_brand.php";
+    String url_edit_img_hang = Utils.BASE_URL+"android_TH/brand/upload_img_brand.php";
+    String url_del_brand = Utils.BASE_URL+"android_TH/brand/deletebrand.php";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

@@ -66,9 +66,9 @@ public class ViewDetailProduct extends AppCompatActivity {
     Bitmap bitmap;
     Menu action;
 
-    String url_edit = Utils.BASE_URL+"upload_detail_product.php";
-    String url_edit_img = Utils.BASE_URL+"android_TH/upload_img_product.php";
-    String url_del_product = Utils.BASE_URL+"/deleteproduct.php";
+    String url_edit = Utils.BASE_URL+"android_TH/product/upload_detail_product.php";
+    String url_edit_img = Utils.BASE_URL+"android_TH/product/upload_img_product.php";
+    String url_del_product = Utils.BASE_URL+"android_TH/product/deleteproduct.php";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

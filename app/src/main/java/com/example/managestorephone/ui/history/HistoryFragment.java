@@ -42,7 +42,7 @@ public class HistoryFragment extends Fragment {
 
     private FragmentHistoryBinding binding;
 
-    String url = "http://192.168.1.7:8080/android_TH/ViewOrder.php";
+    String url = "http://192.168.1.7:8080/android_TH/order/ViewOrder.php";
 
     List<HistoryOrder> historyOrderList;
     RecyclerView recyclerView;

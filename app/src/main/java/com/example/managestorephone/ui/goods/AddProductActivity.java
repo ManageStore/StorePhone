@@ -76,9 +76,9 @@ public class AddProductActivity extends AppCompatActivity {
     String mahang;
     String namePhone,thuonghieu,soluong,giaban,gianhap;
 
-    String urlPath = Utils.BASE_URL+"android_TH/AddProduct.php";
-    String urlSelectBrand = Utils.BASE_URL+"android_TH/brand.php";
-    String urlSelected = Utils.BASE_URL+"android_TH/brandSelect.php";
+    String urlPath = Utils.BASE_URL+"android_TH/product/AddProduct.php";
+    String urlSelectBrand = Utils.BASE_URL+"android_TH/brand/brand.php";
+    String urlSelected = Utils.BASE_URL+"android_TH/brand/brandSelect.php";
 
 
     @Override

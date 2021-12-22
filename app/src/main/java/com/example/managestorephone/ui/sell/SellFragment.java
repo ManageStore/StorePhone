@@ -53,7 +53,7 @@ public class SellFragment extends Fragment{
     product Product=null;
     Customer customer=null;
 
-    String url=Utils.BASE_URL.concat("android_TH/order.php");
+    String url=Utils.BASE_URL.concat("android_TH/order/order.php");
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,

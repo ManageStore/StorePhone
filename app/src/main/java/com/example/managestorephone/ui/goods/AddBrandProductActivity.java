@@ -50,7 +50,7 @@ public class AddBrandProductActivity extends AppCompatActivity {
     String nameBrand;
     Toolbar toolbar;
 
-    String url_addBrand = "http://192.168.1.6/android_TH/addBrand.php";
+    String url_addBrand = "http://192.168.1.6/android_TH/product/addBrand.php";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

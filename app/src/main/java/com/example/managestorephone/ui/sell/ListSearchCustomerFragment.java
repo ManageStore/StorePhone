@@ -44,7 +44,7 @@ public class ListSearchCustomerFragment extends Fragment {
 
     private FragmentListSearchCustomerBinding binding;
 
-    String url = "http://192.168.1.7:8080/android_TH/Customer.php";
+    String url = "http://192.168.1.7:8080/android_TH/customer/Customer.php";
 
     List<Customer> customerList;
     RecyclerView recyclerView;

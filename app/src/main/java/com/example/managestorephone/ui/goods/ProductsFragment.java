@@ -42,8 +42,8 @@ public class ProductsFragment extends Fragment {
 
 
     String urlBase= Utils.BASE_URL;
-    String url = Utils.BASE_URL+"android_TH/product.php";
-    String urlBrand = Utils.BASE_URL+"android_TH/brand.php";
+    String url = Utils.BASE_URL+"android_TH/product/product.php";
+    String urlBrand = Utils.BASE_URL+"android_TH/brand/brand.php";
 
 
     EditText searchEdit;

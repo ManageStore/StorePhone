@@ -43,7 +43,7 @@ public class CustomerFragment extends Fragment {
 
     private FragmentCustomerBinding binding;
 
-    String url = Utils.BASE_URL+"android_TH/Customer.php";
+    String url = Utils.BASE_URL+"android_TH/customer/Customer.php";
 
     List<Customer> customerList;
     RecyclerView recyclerView;
