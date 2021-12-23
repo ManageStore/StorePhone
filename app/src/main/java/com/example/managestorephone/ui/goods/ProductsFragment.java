@@ -216,6 +216,7 @@ public class ProductsFragment extends Fragment {
                 }
                 recyclerViewAdapter2 = new BrandAdapter(getActivity(),brandList);
                 recyclerView2.setAdapter(recyclerViewAdapter2);
+
             }
         }, new Response.ErrorListener() {
             @Override

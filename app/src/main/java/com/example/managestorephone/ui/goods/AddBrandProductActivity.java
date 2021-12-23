@@ -19,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.managestorephone.R;
+import com.example.managestorephone.utils.Utils;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -50,7 +51,7 @@ public class AddBrandProductActivity extends AppCompatActivity {
     String nameBrand;
     Toolbar toolbar;
 
-    String url_addBrand = "http://192.168.1.6/android_TH/product/addBrand.php";
+    String url_addBrand = Utils.BASE_URL+"android_TH/brand/addBrand.php";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

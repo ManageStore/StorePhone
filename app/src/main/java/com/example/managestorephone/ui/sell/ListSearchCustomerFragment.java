@@ -32,6 +32,7 @@ import com.example.managestorephone.Order.ProductListSearchAdapter;
 import com.example.managestorephone.R;
 
 import com.example.managestorephone.databinding.FragmentListSearchCustomerBinding;
+import com.example.managestorephone.utils.Utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,7 +45,7 @@ public class ListSearchCustomerFragment extends Fragment {
 
     private FragmentListSearchCustomerBinding binding;
 
-    String url = "http://192.168.1.7:8080/android_TH/customer/Customer.php";
+    String url= Utils.BASE_URL.concat("android_TH/customer/Customer.php");
 
     List<Customer> customerList;
     RecyclerView recyclerView;

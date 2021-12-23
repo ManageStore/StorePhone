@@ -42,5 +42,11 @@
         android:label="Chọn Sản Phẩm"
         tools:layout="@layout/fragment_list_search_product" />
 
+    <fragment
+        android:id="@+id/nav_setting"
+        android:name="com.example.managestorephone.ui.setting.SettingFragment"
+        android:label="Thông tin tài khoản"
+        tools:layout="@layout/fragment_setting" />
+
 
 </navigation>

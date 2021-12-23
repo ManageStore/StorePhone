@@ -24,6 +24,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.managestorephone.utils.Utils;
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONArray;
@@ -41,8 +42,7 @@ public class LoginActivity extends AppCompatActivity {
 
     String Name,Password;
     SharedPreferences sharedPreferences;
-    String url = "http://192.168.1.6/android_TH/UserLogin.php";
-    SessionManager sessionManager;
+    String url= Utils.BASE_URL.concat("android_TH/UserLogin.php");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +50,6 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(activity_login);
 
         sharedPreferences = getSharedPreferences("LOGIN", Context.MODE_PRIVATE);
-        sessionManager = new SessionManager(this);
 
         AnhXa();
 
@@ -93,13 +92,7 @@ public class LoginActivity extends AppCompatActivity {
                         for(int i= 0;i<jsonArray.length();i++){
                             JSONObject object = jsonArray.getJSONObject(i);
 
-                            String name = object.getString("name").trim();
-                            String email = object.getString("email").trim();
-                            String password = object.getString("password").trim();
-
-                            String id = object.getString("id").trim();
-
-                            sessionManager.createSession(name,email,password,id);
+                            Utils.getId = object.getString("id").trim();
 
                             progressDialog.dismiss();
                             Toast.makeText(LoginActivity.this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();

@@ -27,14 +27,6 @@
             android:icon="@drawable/ic_history"
             android:title="@string/menu_history" />
         <item
-            android:id="@+id/nav_logout"
-            android:icon="@drawable/ic_logout"
-            android:title="@string/menu_logout" />
-        <item
-            android:id="@+id/nav_productdetail"
-            android:icon="@drawable/ic_setting"
-            android:title="Thông Tin Chi Tiết" />
-        <item
             android:id="@+id/nav_setting"
             android:icon="@drawable/ic_setting"
             android:title="@string/menu_setting" />

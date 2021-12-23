@@ -32,6 +32,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.example.managestorephone.MainActivity;
+import com.example.managestorephone.Product.ProductListAdapter;
 import com.example.managestorephone.Product.product;
 import com.example.managestorephone.R;
 import com.example.managestorephone.utils.Utils;
@@ -62,9 +63,10 @@ public class ViewDetailProduct extends AppCompatActivity {
     String Masp, Tensp, soluongsp, giabansp, gianhapsp;
     String gia_ban, gia_nhap;
     boolean check = true;
-    ProgressDialog progressDialog;
     Bitmap bitmap;
     Menu action;
+
+    ProductListAdapter productListAdapter;
 
     String url_edit = Utils.BASE_URL+"android_TH/product/upload_detail_product.php";
     String url_edit_img = Utils.BASE_URL+"android_TH/product/upload_img_product.php";
