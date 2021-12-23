@@ -180,7 +180,7 @@
 
         android:layout_alignParentBottom="true"
         android:layout_marginTop="677dp"
-        android:background="#3955DC"
+        android:background="#60BA62"
         android:gravity="center"
         android:text="Thanh Toán"
         android:textColor="@color/white"

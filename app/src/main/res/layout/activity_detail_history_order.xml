@@ -13,7 +13,8 @@
         android:id="@+id/toolbarbrand"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#32C3A6"
+        android:background="#60BA62"
+        app:titleTextColor="@color/white"
         app:title="Chi Tiết Đơn Hàng" />
     <TextView
         android:layout_width="match_parent"

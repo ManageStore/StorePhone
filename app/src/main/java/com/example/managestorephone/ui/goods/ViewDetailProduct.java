@@ -22,6 +22,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -35,6 +36,7 @@ import com.example.managestorephone.MainActivity;
 import com.example.managestorephone.Product.ProductListAdapter;
 import com.example.managestorephone.Product.product;
 import com.example.managestorephone.R;
+import com.example.managestorephone.ui.sell.SellFragment;
 import com.example.managestorephone.utils.Utils;
 
 import org.json.JSONException;
@@ -127,6 +129,7 @@ public class ViewDetailProduct extends AppCompatActivity {
                 deleteProductFunction(Masp);
 
                 startActivity(new Intent(ViewDetailProduct.this, MainActivity.class));
+
             }
         });
     }
@@ -389,6 +392,11 @@ public class ViewDetailProduct extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
+//        ProductsFragment productsFragment= new ProductsFragment();
+//
+//        FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
+//        fragmentTransaction.replace(R.id.nav_host_fragment_content_main,productsFragment);
+//        fragmentTransaction.commit();
         onBackPressed();
         return true;
     }

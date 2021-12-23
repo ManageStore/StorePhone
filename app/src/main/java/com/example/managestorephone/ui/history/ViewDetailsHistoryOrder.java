@@ -89,6 +89,7 @@ public class ViewDetailsHistoryOrder extends AppCompatActivity {
         toolbarbrand = findViewById(R.id.toolbarbrand);
         setSupportActionBar(toolbarbrand);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         historyOrderProductList = new ArrayList<>();
 
         final Object object = getIntent().getSerializableExtra("detailOrder");
@@ -169,16 +170,14 @@ public class ViewDetailsHistoryOrder extends AppCompatActivity {
 
 
 
+
+
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_action, menu);
-        action = menu;
-        action.findItem(R.id.menu_save).setVisible(false);
+    public boolean onSupportNavigateUp() {
+
+        onBackPressed();
         return true;
     }
-
-
 
 
 

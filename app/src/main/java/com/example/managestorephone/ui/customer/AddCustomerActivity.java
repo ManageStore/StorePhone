@@ -82,8 +82,9 @@ public class AddCustomerActivity extends AppCompatActivity {
             public void onResponse(String response) {
 
                 if(response.equals("You are registered successfully")){
-                    Toast.makeText(AddCustomerActivity.this, "Đăng kí thành công!", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(AddCustomerActivity.this, MainActivity.class));
+                    Toast.makeText(AddCustomerActivity.this, "Thêm thành công!", Toast.LENGTH_SHORT).show();
+//                    startActivity(new Intent(AddCustomerActivity.this, MainActivity.class));
+                    onSupportNavigateUp();
                     progressDialog.dismiss();
                     finish();
                 }else{
