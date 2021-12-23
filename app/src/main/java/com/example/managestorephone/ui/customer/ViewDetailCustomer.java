@@ -86,8 +86,10 @@ public class ViewDetailCustomer extends AppCompatActivity {
                 MaKH = tvMakh.getText().toString();
 
                 deleteCustomerFunction(MaKH);
+                onSupportNavigateUp();
 
-                startActivity(new Intent(ViewDetailCustomer.this, MainActivity.class));
+
+//                startActivity(new Intent(ViewDetailCustomer.this, MainActivity.class));
             }
         });
 

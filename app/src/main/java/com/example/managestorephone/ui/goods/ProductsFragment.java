@@ -11,9 +11,12 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -27,6 +30,8 @@ import com.example.managestorephone.Product.product;
 
 import com.example.managestorephone.R;
 import com.example.managestorephone.databinding.FragmentProductsBinding;
+import com.example.managestorephone.ui.sell.ListSearchProductFragment;
+import com.example.managestorephone.ui.sell.SellFragment;
 import com.example.managestorephone.utils.Utils;
 
 
@@ -70,6 +75,8 @@ public class ProductsFragment extends Fragment {
         binding = FragmentProductsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+
+
         binding.tvAddProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,6 +87,17 @@ public class ProductsFragment extends Fragment {
 
             }
         });
+        binding.swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+                ProductsFragment productFragment= new ProductsFragment();
+                FragmentTransaction fragmentTransaction=getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.nav_host_fragment_content_main,productFragment);
+                fragmentTransaction.commit();
+            }
+        });
+
 
         binding.tvaddBrandProduct.setOnClickListener(new View.OnClickListener() {
             @Override

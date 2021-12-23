@@ -22,6 +22,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -35,6 +42,7 @@ import com.example.managestorephone.MainActivity;
 import com.example.managestorephone.Product.Brand;
 import com.example.managestorephone.Product.product;
 import com.example.managestorephone.R;
+import com.example.managestorephone.ui.sell.SellFragment;
 import com.example.managestorephone.utils.Utils;
 
 import org.json.JSONException;
@@ -105,8 +113,10 @@ public class ViewDetailBrand extends AppCompatActivity {
                 MaHang = mahang.getText().toString();
 
                 deleteBrandFunction(MaHang);
+                onSupportNavigateUp();
 
-                startActivity(new Intent(ViewDetailBrand.this, MainActivity.class));
+
+
             }
         });
 
@@ -349,7 +359,9 @@ public class ViewDetailBrand extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
+
         onBackPressed();
+
         return true;
     }
 

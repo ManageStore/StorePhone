@@ -127,8 +127,8 @@ public class ViewDetailProduct extends AppCompatActivity {
                 Masp = tvMasp.getText().toString();
 
                 deleteProductFunction(Masp);
-
-                startActivity(new Intent(ViewDetailProduct.this, MainActivity.class));
+                onSupportNavigateUp();
+//                startActivity(new Intent(ViewDetailProduct.this, MainActivity.class));
 
             }
         });
@@ -392,11 +392,6 @@ public class ViewDetailProduct extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
-//        ProductsFragment productsFragment= new ProductsFragment();
-//
-//        FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
-//        fragmentTransaction.replace(R.id.nav_host_fragment_content_main,productsFragment);
-//        fragmentTransaction.commit();
         onBackPressed();
         return true;
     }

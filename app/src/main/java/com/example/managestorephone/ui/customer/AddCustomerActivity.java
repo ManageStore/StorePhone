@@ -64,6 +64,12 @@ public class AddCustomerActivity extends AppCompatActivity {
 
                 }else{
                     registerNewAccount(TenKH,DiaChi,SDT);
+                    edTenKH.setText(null);
+                    edDiaChi.setText(null);
+                    edDT.setText(null);
+
+
+
                 }
             }
         });
@@ -83,8 +89,8 @@ public class AddCustomerActivity extends AppCompatActivity {
 
                 if(response.equals("You are registered successfully")){
                     Toast.makeText(AddCustomerActivity.this, "Thêm thành công!", Toast.LENGTH_SHORT).show();
-//                    startActivity(new Intent(AddCustomerActivity.this, MainActivity.class));
-                    onSupportNavigateUp();
+
+
                     progressDialog.dismiss();
                     finish();
                 }else{

@@ -17,10 +17,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -31,6 +33,7 @@ import com.example.managestorephone.Customer;
 import com.example.managestorephone.CustomerListAdapter;
 import com.example.managestorephone.R;
 import com.example.managestorephone.databinding.FragmentCustomerBinding;
+import com.example.managestorephone.ui.goods.ProductsFragment;
 import com.example.managestorephone.utils.Utils;
 
 import org.json.JSONArray;
@@ -77,7 +80,16 @@ public class CustomerFragment extends Fragment {
                 startActivity(new Intent(getContext(),AddCustomerActivity.class));
             }
         });
+        binding.swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
 
+                CustomerFragment customerFragment= new CustomerFragment();
+                FragmentTransaction fragmentTransaction=getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.nav_host_fragment_content_main,customerFragment);
+                fragmentTransaction.commit();
+            }
+        });
         searchEdit =(EditText) root.findViewById(R.id.id_search_customer);
 
         searchEdit.addTextChangedListener(new TextWatcher() {
