@@ -12,7 +12,8 @@
         android:id="@+id/toolbarINCus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#32C3A6"
+        android:background="#60BA62"
+        app:titleTextColor="@color/white"
         app:title="Thông tin khách hàng"/>
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -127,6 +128,8 @@
         <Button
             android:layout_marginTop="10dp"
             android:id="@+id/buttonXoaCus"
+            android:textColor="@color/white"
+            android:background="@drawable/button_dn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Xóa" />

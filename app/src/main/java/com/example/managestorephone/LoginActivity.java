@@ -24,6 +24,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.managestorephone.utils.Utils;
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONArray;
@@ -41,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
 
     String Name,Password;
     SharedPreferences sharedPreferences;
-    String url = "http://192.168.1.6/android_TH/UserLogin.php";
+    String url = Utils.BASE_URL+"android_TH/UserLogin.php";
     SessionManager sessionManager;
 
     @Override

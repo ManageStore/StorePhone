@@ -12,7 +12,8 @@
         android:id="@+id/toolbarAdd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#32C3A6"
+        app:titleTextColor="@color/white"
+        android:background="#60BA62"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -26,18 +27,20 @@
         android:orientation="vertical">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_marginTop="20dp"
             android:id="@+id/image_phone"
             android:layout_width="196dp"
             android:layout_height="196dp"
+
             android:layout_gravity="center"
+            android:layout_marginTop="20dp"
             android:src="@drawable/ic_phone"
-            app:civ_border_width="1dp"
-            app:civ_border_color="#FF000000" />
+            app:civ_border_color="#FF000000"
+
+            app:civ_border_width="1dp" />
 
         <TextView
             android:id="@+id/addImg"
-            android:textColor="#0079CA"
+            android:textColor="#60BA62"
             android:layout_gravity="center"
             android:text="Thêm ảnh"
             android:textSize="18sp"
@@ -70,15 +73,15 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:layout_width="123dp"
+                android:layout_height="wrap_content"
+
                 android:text="Tên điện thoại"
-                android:textSize="18sp"
-                android:fontFamily="@font/lato_regular"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/txttendt"
-                android:layout_marginLeft="10dp"
+
                 android:hint="Tên điện thoại"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -95,22 +98,18 @@
             <TextView
                 android:text="Thương hiệu"
                 android:textSize="18sp"
-                android:fontFamily="@font/lato_regular"
-                android:layout_width="wrap_content"
+                android:layout_width="123dp"
+
+
                 android:layout_height="wrap_content"/>
 
             <Spinner
                 android:id="@+id/spinner"
-                android:layout_marginLeft="20dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+             />
 
-<!--            <EditText-->
-<!--                android:id="@+id/txtthuonghieu"-->
-<!--                android:layout_marginLeft="22dp"-->
-<!--                android:hint="Thương hiệu"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"/>-->
+
 
         </LinearLayout>
 
@@ -125,13 +124,13 @@
             <TextView
                 android:text="Số lượng"
                 android:textSize="18sp"
-                android:fontFamily="@font/lato_regular"
-                android:layout_width="wrap_content"
+                android:layout_width="123dp"
+
                 android:layout_height="wrap_content"/>
 
             <EditText
                 android:id="@+id/txtsoluong"
-                android:layout_marginLeft="50dp"
+
                 android:hint="Số lượng"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -148,13 +147,13 @@
             <TextView
                 android:text="Giá nhập"
                 android:textSize="18sp"
-                android:fontFamily="@font/lato_regular"
-                android:layout_width="wrap_content"
+                android:layout_width="123dp"
+
                 android:layout_height="wrap_content"/>
 
             <EditText
                 android:id="@+id/txtgianhap"
-                android:layout_marginLeft="50dp"
+
                 android:hint="Giá nhập"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -171,13 +170,13 @@
             <TextView
                 android:text="Giá bán"
                 android:textSize="18sp"
-                android:fontFamily="@font/lato_regular"
-                android:layout_width="wrap_content"
+                android:layout_width="123dp"
+
                 android:layout_height="wrap_content"/>
 
             <EditText
                 android:id="@+id/txtgianban"
-                android:layout_marginLeft="60dp"
+
                 android:hint="Giá bán"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>

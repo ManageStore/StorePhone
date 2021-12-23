@@ -12,7 +12,8 @@
         android:id="@+id/toolbarAddBrand"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#32C3A6"
+        android:background="#60BA62"
+        app:titleTextColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -37,8 +38,11 @@
 
         <TextView
             android:id="@+id/addhangImg"
-            android:textColor="#0079CA"
+            android:textColor="@color/white"
             android:layout_gravity="center"
+            android:background="#60BA62"
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
             android:text="Thêm ảnh"
             android:textSize="18sp"
             android:fontFamily="@font/lato_regular"
@@ -72,7 +76,7 @@
             <TextView
                 android:text="Tên hãng điện thoại"
                 android:textSize="18sp"
-                android:fontFamily="@font/lato_regular"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 

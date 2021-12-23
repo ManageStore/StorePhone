@@ -1,6 +1,7 @@
 package com.example.managestorephone.ui.sell;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -32,6 +33,8 @@ import com.example.managestorephone.Order.ProductListSearchAdapter;
 import com.example.managestorephone.R;
 
 import com.example.managestorephone.databinding.FragmentListSearchCustomerBinding;
+import com.example.managestorephone.ui.customer.AddCustomerActivity;
+import com.example.managestorephone.utils.Utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,7 +47,7 @@ public class ListSearchCustomerFragment extends Fragment {
 
     private FragmentListSearchCustomerBinding binding;
 
-    String url = "http://192.168.1.7:8080/android_TH/customer/Customer.php";
+    String url = Utils.BASE_URL+ "android_TH/customer/Customer.php";
 
     List<Customer> customerList;
     RecyclerView recyclerView;
@@ -77,6 +80,13 @@ public class ListSearchCustomerFragment extends Fragment {
 
 
         searchEdit =(EditText) root.findViewById(R.id.id_search_customer);
+        binding.themCus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), AddCustomerActivity.class));
+
+            }
+        });
 
         searchEdit.addTextChangedListener(new TextWatcher() {
             @Override

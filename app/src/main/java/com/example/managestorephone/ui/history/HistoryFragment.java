@@ -31,6 +31,7 @@ import com.example.managestorephone.History.HistoryOrderAdapter;
 import com.example.managestorephone.R;
 import com.example.managestorephone.databinding.FragmentCustomerBinding;
 import com.example.managestorephone.databinding.FragmentHistoryBinding;
+import com.example.managestorephone.utils.Utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,7 +44,7 @@ public class HistoryFragment extends Fragment {
 
     private FragmentHistoryBinding binding;
 
-    String url = "http://192.168.1.7:8080/android_TH/order/ViewOrder.php";
+    String url = Utils.BASE_URL+"android_TH/order/ViewOrder.php";
 
     List<HistoryOrder> historyOrderList;
     RecyclerView recyclerView;

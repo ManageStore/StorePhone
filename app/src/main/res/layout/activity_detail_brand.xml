@@ -11,18 +11,21 @@
         android:id="@+id/toolbarbrand"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#32C3A6"
-        app:title="Detailed Brand" />
+        android:background="#60BA62"
+        app:titleTextColor="@color/white"
+        app:title="Chi Tiết Thương Hiệu" />
 
     <ImageView
         android:id="@+id/hinhhang"
+        android:layout_gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
-        android:src="@drawable/oppo"/>
+        android:layout_height="250dp"
+        android:src="@drawable/oppo" />
 
     <TextView
-        android:background="#0079CA"
+        android:background="#60BA62"
         android:id="@+id/tvupdateImg"
+        android:padding="10dp"
         android:textColor="#ffffff"
         android:layout_gravity="center"
         android:text="Sửa ảnh"
@@ -34,6 +37,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
         android:layout_height="wrap_content">
 
         <TextView
@@ -42,7 +46,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="Tên điện thoại"
-            android:fontFamily="@font/lato_regular"
+
+
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imgProduct" />
@@ -71,8 +76,10 @@
 
     <Button
         android:id="@+id/deleteBr"
-        android:background="#FF5722"
+        android:background="@drawable/button_dn"
         android:layout_marginTop="40dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
         android:text="Xóa"
         android:textColor="#ffffff"
         android:layout_width="match_parent"
