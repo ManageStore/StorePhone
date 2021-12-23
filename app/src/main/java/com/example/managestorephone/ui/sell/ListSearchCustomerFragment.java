@@ -33,10 +33,8 @@ import com.example.managestorephone.Order.ProductListSearchAdapter;
 import com.example.managestorephone.R;
 
 import com.example.managestorephone.databinding.FragmentListSearchCustomerBinding;
-<<<<<<< HEAD
-=======
+
 import com.example.managestorephone.ui.customer.AddCustomerActivity;
->>>>>>> 40638e80ee09f68dcbcf9c358d37427d440e8340
 import com.example.managestorephone.utils.Utils;
 
 import org.json.JSONArray;
@@ -50,11 +48,8 @@ public class ListSearchCustomerFragment extends Fragment {
 
     private FragmentListSearchCustomerBinding binding;
 
-<<<<<<< HEAD
     String url= Utils.BASE_URL.concat("android_TH/customer/Customer.php");
-=======
-    String url = Utils.BASE_URL+ "android_TH/customer/Customer.php";
->>>>>>> 40638e80ee09f68dcbcf9c358d37427d440e8340
+
 
     List<Customer> customerList;
     RecyclerView recyclerView;
