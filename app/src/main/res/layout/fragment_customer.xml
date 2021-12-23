@@ -27,6 +27,7 @@
             android:hint="Tìm kiêm theo tên"
             android:padding="10dp" />
         <Button
+            android:id="@+id/themCus"
             android:layout_width="wrap_content"
             android:layout_gravity="center"
             android:layout_marginRight="5dp"

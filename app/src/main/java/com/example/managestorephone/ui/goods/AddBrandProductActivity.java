@@ -249,4 +249,10 @@ public class AddBrandProductActivity extends AppCompatActivity {
         return stringBuilderObject.toString();
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
 }

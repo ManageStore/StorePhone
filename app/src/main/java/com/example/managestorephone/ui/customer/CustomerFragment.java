@@ -1,5 +1,6 @@
 package com.example.managestorephone.ui.customer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -58,8 +59,6 @@ public class CustomerFragment extends Fragment {
     RecyclerView.Adapter recyclerViewAdapter;
     ArrayList<String> ImageTitle;
 
-
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentCustomerBinding.inflate(inflater, container, false);
@@ -73,7 +72,12 @@ public class CustomerFragment extends Fragment {
         recyclerView.setAdapter(recyclerViewAdapter);
         call_json();
 
-
+        binding.themCus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(),AddCustomerActivity.class));
+            }
+        });
 
         searchEdit =(EditText) root.findViewById(R.id.id_search_customer);
 
@@ -143,6 +147,7 @@ public class CustomerFragment extends Fragment {
                 }
                 customerListAdapter = new CustomerListAdapter(customerList,getActivity());
                 recyclerView.setAdapter(customerListAdapter);
+                customerListAdapter.notifyDataSetChanged();
 
             }
         }, new Response.ErrorListener() {

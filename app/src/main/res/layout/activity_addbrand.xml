@@ -88,7 +88,10 @@
         <Button
             android:layout_marginTop="20dp"
             android:id="@+id/buttonLuuhang"
-            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_width="365dp"
+            android:background="@drawable/button_dn"
+            android:textColor="@color/white"
             android:layout_height="wrap_content"
             android:text="Lưu" />
 

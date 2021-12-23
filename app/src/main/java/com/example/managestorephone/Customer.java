@@ -3,12 +3,11 @@ package com.example.managestorephone;
 import java.io.Serializable;
 
 public class Customer implements Serializable {
+
     private int MaKH;
     private String HoTen;
     private String DiaChi;
     private String SDT;
-
-
 
     public int getMaKH() {
         return MaKH;

@@ -347,5 +347,10 @@ public class ViewDetailBrand extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 
 }

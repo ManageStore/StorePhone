@@ -135,14 +135,14 @@
 
     <Button
         android:id="@+id/btnSignin"
-        android:layout_width="365dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="70dp"
-        android:text="Đăng Nhập"
-        android:textAllCaps="false"
-        android:fontFamily="@font/lato_bold"
+        android:layout_width="365dp"
         android:background="@drawable/button_dn"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:fontFamily="@font/lato_bold"
+        android:text="Đăng Nhập"
+        android:textAllCaps="false" />
 
 </LinearLayout>
