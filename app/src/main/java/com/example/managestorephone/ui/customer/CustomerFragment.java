@@ -52,11 +52,10 @@ public class CustomerFragment extends Fragment {
 
     JsonArrayRequest request;
     RequestQueue requestQueue;
-    View view;
-    int RecyclerViewPosition;
+
     RecyclerView.LayoutManager layoutManager;
     RecyclerView.Adapter recyclerViewAdapter;
-    ArrayList<String> ImageTitle;
+
 
 
 

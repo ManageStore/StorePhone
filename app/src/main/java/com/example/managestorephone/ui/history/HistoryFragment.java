@@ -3,6 +3,7 @@ package com.example.managestorephone.ui.history;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -129,6 +130,7 @@ public class HistoryFragment extends Fragment {
                     JSONObject jsonObject = null;
                     try {
                         jsonObject = response.getJSONObject(i);
+
                         getHistoryAdapter.setHoTen(jsonObject.getString("HoTen"));
                         getHistoryAdapter.setMaHD(jsonObject.getInt("MaHD"));
                         getHistoryAdapter.setMaKH(jsonObject.getInt("MaKH"));

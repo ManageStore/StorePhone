@@ -1,5 +1,7 @@
 package com.example.managestorephone.History;
 
+import java.io.Serializable;
+
 public class HistoryOrderProduct {
     private int MaHD;
     private int MaSP;
