@@ -2,6 +2,7 @@ package com.example.managestorephone;
 
 import android.content.Context;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+import com.example.managestorephone.ui.customer.ViewDetailCustomer;
+import com.example.managestorephone.ui.goods.ViewDetailProduct;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +43,15 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
         holder.avtata.setText(customer.getHoTen().charAt(0)+"");
         holder.nameCustomer.setText(customer.getHoTen());
         holder.numberMobile.setText(customer.getSDT());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, ViewDetailCustomer.class);
+                intent.putExtra("detailCustomer",customers.get(position));
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

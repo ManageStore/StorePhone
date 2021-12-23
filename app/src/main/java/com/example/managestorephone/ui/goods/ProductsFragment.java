@@ -235,4 +235,5 @@ public class ProductsFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
 }
