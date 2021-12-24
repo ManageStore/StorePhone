@@ -78,6 +78,7 @@ public class CustomerFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getContext(),AddCustomerActivity.class));
+                getActivity().overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
             }
         });
         binding.swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {

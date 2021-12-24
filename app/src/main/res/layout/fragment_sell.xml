@@ -12,8 +12,6 @@
         android:id="@+id/customerlist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-
         android:background="#ffff"
         android:orientation="horizontal"
         android:paddingTop="10dp"
@@ -176,10 +174,7 @@
         android:id="@+id/thanhtoanbtn"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-
-
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="677dp"
         android:background="#60BA62"
         android:gravity="center"
         android:text="Thanh Toán"

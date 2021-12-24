@@ -12,8 +12,10 @@ import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -77,6 +79,7 @@ private FragmentListSearchProductBinding binding;
             public void onClick(View view) {
 
                 startActivity(new Intent(getContext(), AddProductActivity.class));
+                getActivity().overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
 
             }
@@ -89,6 +92,7 @@ private FragmentListSearchProductBinding binding;
         recyclerView.setLayoutManager(layoutManager);
         call_json();
         searchEdit = (EditText) root.findViewById(R.id.id_search_product);
+
         searchEdit.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -103,6 +107,17 @@ private FragmentListSearchProductBinding binding;
             public void afterTextChanged(Editable s) {
                 filter(s.toString());
 
+            }
+        });
+
+        binding.swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+                ListSearchProductFragment listSearchProductFragment= new ListSearchProductFragment();
+                FragmentTransaction fragmentTransaction=getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.nav_host_fragment_content_main,listSearchProductFragment);
+                fragmentTransaction.commit();
             }
         });
 

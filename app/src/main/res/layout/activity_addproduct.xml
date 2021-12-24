@@ -42,7 +42,7 @@
             android:id="@+id/addImg"
             android:textColor="#60BA62"
             android:layout_gravity="center"
-            android:text="Thêm ảnh"
+            android:text="@string/addImage"
             android:textSize="18sp"
             android:fontFamily="@font/lato_regular"
             android:layout_width="wrap_content"
@@ -75,7 +75,7 @@
             <TextView
                 android:layout_width="123dp"
                 android:layout_height="wrap_content"
-
+                android:textColor="#373b54"
                 android:text="Tên điện thoại"
                 android:textSize="18sp" />
 
@@ -99,15 +99,13 @@
                 android:text="Thương hiệu"
                 android:textSize="18sp"
                 android:layout_width="123dp"
-
-
+                android:textColor="#373b54"
                 android:layout_height="wrap_content"/>
 
             <Spinner
                 android:id="@+id/spinner"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-             />
+                android:layout_height="wrap_content" />
 
 
 
@@ -125,7 +123,7 @@
                 android:text="Số lượng"
                 android:textSize="18sp"
                 android:layout_width="123dp"
-
+                android:textColor="#373b54"
                 android:layout_height="wrap_content"/>
 
             <EditText
@@ -148,7 +146,7 @@
                 android:text="Giá nhập"
                 android:textSize="18sp"
                 android:layout_width="123dp"
-
+                android:textColor="#373b54"
                 android:layout_height="wrap_content"/>
 
             <EditText
@@ -176,7 +174,7 @@
 
             <EditText
                 android:id="@+id/txtgianban"
-
+                android:textColor="#373b54"
                 android:hint="Giá bán"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>

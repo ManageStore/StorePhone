@@ -41,16 +41,14 @@ public class LoginActivity extends AppCompatActivity {
     CheckBox cbBox;
 
     String Name,Password;
-    SharedPreferences sharedPreferences;
     String url= Utils.BASE_URL.concat("android_TH/UserLogin.php");
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(activity_login);
+        setContentView(R.layout.activity_login);
 
-        sharedPreferences = getSharedPreferences("LOGIN", Context.MODE_PRIVATE);
 
         AnhXa();
 
@@ -68,10 +66,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        String loginStatus = sharedPreferences.getString(getResources().getString(R.string.preLoginState),"");
-        if(loginStatus.equals("LoggedIn")){
-            startActivity(new Intent(LoginActivity.this,MainActivity.class));
-        }
 
     }
 
@@ -96,17 +90,12 @@ public class LoginActivity extends AppCompatActivity {
                             Utils.getId = object.getString("id").trim();
 
                             progressDialog.dismiss();
-                            Toast.makeText(LoginActivity.this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
 
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            if(cbBox.isChecked()){
-                                editor.putString(getResources().getString(R.string.preLoginState),"LoggedIn");
-                            }else{
-                                editor.putString(getResources().getString(R.string.preLoginState),"LoggedOut");
-                            }
-                            editor.apply();
+
 
                             startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                            overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                         }
                     }else{
                         progressDialog.dismiss();
@@ -147,6 +136,5 @@ public class LoginActivity extends AppCompatActivity {
         txtName = (TextInputEditText) findViewById(R.id.txtName);
         txtPass = (TextInputEditText) findViewById(R.id.txtPassword);
         btnSignin = (Button) findViewById(R.id.btnSignin);
-        cbBox = (CheckBox) findViewById(R.id.cbBox);
     }
 }

@@ -38,12 +38,9 @@
 
         <TextView
             android:id="@+id/addhangImg"
-            android:textColor="@color/white"
+            android:textColor="#60BA62"
             android:layout_gravity="center"
-            android:background="#60BA62"
-            android:layout_marginTop="5dp"
-            android:padding="5dp"
-            android:text="Thêm ảnh"
+            android:text="@string/addImage"
             android:textSize="18sp"
             android:fontFamily="@font/lato_regular"
             android:layout_width="wrap_content"
@@ -76,7 +73,7 @@
             <TextView
                 android:text="Tên hãng điện thoại"
                 android:textSize="18sp"
-
+                android:textColor="#373b54"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 

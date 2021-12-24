@@ -68,8 +68,6 @@ public class AddCustomerActivity extends AppCompatActivity {
                     edDiaChi.setText(null);
                     edDT.setText(null);
 
-
-
                 }
             }
         });
@@ -88,21 +86,20 @@ public class AddCustomerActivity extends AppCompatActivity {
             public void onResponse(String response) {
 
                 if(response.equals("You are registered successfully")){
+                    progressDialog.dismiss();
+
                     Toast.makeText(AddCustomerActivity.this, "Thêm thành công!", Toast.LENGTH_SHORT).show();
 
-
-                    progressDialog.dismiss();
-                    finish();
                 }else{
                     progressDialog.dismiss();
-                    Toast.makeText(AddCustomerActivity.this, response, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddCustomerActivity.this, "Không thành công" , Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 progressDialog.dismiss();
-                Toast.makeText(AddCustomerActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddCustomerActivity.this, "Không thành công" , Toast.LENGTH_SHORT).show();
             }
         }
         ){
@@ -125,6 +122,8 @@ public class AddCustomerActivity extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
+        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
+
         return true;
     }
 

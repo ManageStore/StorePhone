@@ -83,6 +83,7 @@ public class ProductsFragment extends Fragment {
 
 
                 startActivity(new Intent(getContext(), AddProductActivity.class));
+                getActivity().overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
 
             }
@@ -104,6 +105,7 @@ public class ProductsFragment extends Fragment {
             public void onClick(View view) {
 
                 startActivity(new Intent(getContext(), AddBrandProductActivity.class));
+                getActivity().overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
 
             }

@@ -361,7 +361,7 @@ public class ViewDetailBrand extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
 
         onBackPressed();
-
+        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
         return true;
     }
 

@@ -1,54 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/swipe"
     android:layout_height="match_parent"
     android:background="#F3F3F3"
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_gravity="center">
 
-        <EditText
-            android:id="@+id/id_search_customer"
-            android:layout_width="311dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/background_edit"
-            android:drawableLeft="@drawable/ic_seach"
-            android:drawablePadding="3dp"
+            <EditText
+                android:id="@+id/id_search_customer"
+                android:layout_width="311dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/background_edit"
+                android:drawableLeft="@drawable/ic_seach"
+                android:drawablePadding="3dp"
+                android:elevation="3dp"
+                android:hint="Tìm kiếm theo tên"
+                android:padding="10dp" />
+            <Button
+                android:id="@+id/themCus"
+                android:layout_width="35dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/ic_person_add"
+                android:layout_height="35dp"/>
+        </LinearLayout>
 
-            android:elevation="3dp"
-            android:hint="Tìm kiêm theo tên"
-            android:padding="10dp" />
-        <Button
-            android:id="@+id/themCus"
-            android:layout_width="35dp"
-            android:layout_gravity="center"
-            android:layout_marginRight="5dp"
-            android:background="@drawable/ic_person_add"
-            android:layout_marginTop="4dp"
-
-            android:layout_height="35dp"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="60dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="60dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
 
 
-</LinearLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

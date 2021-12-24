@@ -83,13 +83,11 @@ public class ViewDetailCustomer extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                MaKH = tvMakh.getText().toString();
+                MaKH = tvMakh.getText().toString().trim();
 
                 deleteCustomerFunction(MaKH);
                 onSupportNavigateUp();
 
-
-//                startActivity(new Intent(ViewDetailCustomer.this, MainActivity.class));
             }
         });
 
@@ -167,20 +165,20 @@ public class ViewDetailCustomer extends AppCompatActivity {
                             String success = jsonObject.getString("success");
 
                             if(success.equals("1")){
-                                Toast.makeText(ViewDetailCustomer.this, "Success", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ViewDetailCustomer.this, "Thành công", Toast.LENGTH_SHORT).show();
                             }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
                             progressDialog.dismiss();
-                            Toast.makeText(ViewDetailCustomer.this, "Error" + e.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ViewDetailCustomer.this, "Không thành công" , Toast.LENGTH_SHORT).show();
                         }
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 progressDialog.dismiss();
-                Toast.makeText(ViewDetailCustomer.this, "Error" + error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ViewDetailCustomer.this, "Không thành công" , Toast.LENGTH_SHORT).show();
             }
         }
         ){
@@ -220,20 +218,20 @@ public class ViewDetailCustomer extends AppCompatActivity {
                             String success = jsonObject.getString("success");
 
                             if(success.equals("1")){
-                                Toast.makeText(ViewDetailCustomer.this, "Success", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ViewDetailCustomer.this, "Thành công" , Toast.LENGTH_SHORT).show();
                             }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
                             progressDialog.dismiss();
-                            Toast.makeText(ViewDetailCustomer.this, "Error" + e.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ViewDetailCustomer.this, "Không thành công" , Toast.LENGTH_SHORT).show();
                         }
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 progressDialog.dismiss();
-                Toast.makeText(ViewDetailCustomer.this, "Error" + error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ViewDetailCustomer.this, "Không thành công" , Toast.LENGTH_SHORT).show();
             }
         }
         ){
@@ -253,6 +251,7 @@ public class ViewDetailCustomer extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
+        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
         return true;
     }
 }

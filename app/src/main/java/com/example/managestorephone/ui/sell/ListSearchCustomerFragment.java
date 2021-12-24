@@ -18,8 +18,10 @@ import androidx.annotation.NonNull;
 
 import androidx.fragment.app.Fragment;
 
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -35,6 +37,7 @@ import com.example.managestorephone.R;
 import com.example.managestorephone.databinding.FragmentListSearchCustomerBinding;
 
 import com.example.managestorephone.ui.customer.AddCustomerActivity;
+import com.example.managestorephone.ui.customer.CustomerFragment;
 import com.example.managestorephone.utils.Utils;
 
 import org.json.JSONArray;
@@ -86,7 +89,19 @@ public class ListSearchCustomerFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getContext(), AddCustomerActivity.class));
+                getActivity().overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
+            }
+        });
+
+        binding.swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+                ListSearchCustomerFragment listSearchCustomerFragment= new ListSearchCustomerFragment();
+                FragmentTransaction fragmentTransaction=getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.nav_host_fragment_content_main,listSearchCustomerFragment);
+                fragmentTransaction.commit();
             }
         });
 
