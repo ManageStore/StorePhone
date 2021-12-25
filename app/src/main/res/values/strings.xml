@@ -29,4 +29,7 @@
     <string name="title_activity_detailed">DetailedActivity</string>
 
     <string name="addImage"><u>Thêm ảnh</u></string>
+    <string name="updateImage"><u>Sửa ảnh</u></string>
+    <string name="addImageCus"><u>Thêm ảnh đại diện</u></string>
+
 </resources>

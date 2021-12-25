@@ -260,7 +260,7 @@ public class AddProductActivity extends AppCompatActivity {
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                progressDialog = ProgressDialog.show(AddProductActivity.this,"Image is Uploading","Please Wait",false,false);
+                progressDialog = ProgressDialog.show(AddProductActivity.this,"Loading...","Please Wait",false,false);
             }
 
             @Override

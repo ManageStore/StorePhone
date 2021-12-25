@@ -1,6 +1,7 @@
 package com.example.managestorephone.ui.goods;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentTransaction;
@@ -32,6 +34,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.example.managestorephone.LoginActivity;
 import com.example.managestorephone.MainActivity;
 import com.example.managestorephone.Product.ProductListAdapter;
 import com.example.managestorephone.Product.product;
@@ -124,12 +127,37 @@ public class ViewDetailProduct extends AppCompatActivity {
         btDel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Masp = tvMasp.getText().toString();
 
-                deleteProductFunction(Masp);
-                onSupportNavigateUp();
-//                startActivity(new Intent(ViewDetailProduct.this, MainActivity.class));
+                AlertDialog.Builder builder = new AlertDialog.Builder(ViewDetailProduct.this);
 
+                builder.setTitle("Xác nhận");
+                builder.setMessage("Bạn có chắc không?");
+
+                builder.setPositiveButton("CÓ", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        // Do nothing, but close the dialog
+                        deleteProductFunction(Masp);
+                        onSupportNavigateUp();
+
+                    }
+                });
+
+                builder.setNegativeButton("KHÔNG", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        // Do nothing
+                        dialog.dismiss();
+                    }
+                });
+
+                AlertDialog alert = builder.create();
+                alert.show();
             }
         });
     }
@@ -246,12 +274,12 @@ public class ViewDetailProduct extends AppCompatActivity {
                     String success = jsonObject.getString("success");
 
                     if(success.equals("1")){
-                        Toast.makeText(ViewDetailProduct.this, "Success", Toast.LENGTH_SHORT).show(); }
+                        Toast.makeText(ViewDetailProduct.this, "Thành công", Toast.LENGTH_SHORT).show(); }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
                     progressDialog.dismiss();
-                    Toast.makeText(ViewDetailProduct.this, "Try Again!"+ e.toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ViewDetailProduct.this, "Không thành công", Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
@@ -260,7 +288,7 @@ public class ViewDetailProduct extends AppCompatActivity {
                 progressDialog.dismiss();
                 Log.e("a",error.toString());
 
-                Toast.makeText(ViewDetailProduct.this, "Try Again!"+ error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ViewDetailProduct.this, "Không thành công", Toast.LENGTH_SHORT).show();
             }
         }){
             @Nullable
@@ -307,20 +335,20 @@ public class ViewDetailProduct extends AppCompatActivity {
                             String success = jsonObject.getString("success");
 
                             if(success.equals("1")){
-                                Toast.makeText(ViewDetailProduct.this, "Success", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ViewDetailProduct.this, "Thành công", Toast.LENGTH_SHORT).show();
                             }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
                             progressDialog.dismiss();
-                            Toast.makeText(ViewDetailProduct.this, "Error" + e.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ViewDetailProduct.this, "Không thành công", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 progressDialog.dismiss();
-                Toast.makeText(ViewDetailProduct.this, "Error" + error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ViewDetailProduct.this, "Không thành công", Toast.LENGTH_SHORT).show();
             }
         }
         ){
@@ -360,20 +388,20 @@ public class ViewDetailProduct extends AppCompatActivity {
                             String success = jsonObject.getString("success");
 
                             if(success.equals("1")){
-                                Toast.makeText(ViewDetailProduct.this, "Success", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ViewDetailProduct.this, "Thành công", Toast.LENGTH_SHORT).show();
                             }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
                             progressDialog.dismiss();
-                            Toast.makeText(ViewDetailProduct.this, "Error" + e.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ViewDetailProduct.this, "Không thành công", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 progressDialog.dismiss();
-                Toast.makeText(ViewDetailProduct.this, "Error" + error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ViewDetailProduct.this, "Không thành công", Toast.LENGTH_SHORT).show();
             }
         }
         ){

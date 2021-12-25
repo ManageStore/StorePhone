@@ -1,6 +1,7 @@
 package com.example.managestorephone.ui.customer;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -85,9 +87,36 @@ public class ViewDetailCustomer extends AppCompatActivity {
 
                 MaKH = tvMakh.getText().toString().trim();
 
-                deleteCustomerFunction(MaKH);
-                onSupportNavigateUp();
 
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(ViewDetailCustomer.this);
+
+                builder.setTitle("Xác nhận");
+                builder.setMessage("Bạn có chắc không?");
+
+                builder.setPositiveButton("CÓ", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        // Do nothing, but close the dialog
+                        deleteCustomerFunction(MaKH);
+                        onSupportNavigateUp();
+
+                    }
+                });
+
+                builder.setNegativeButton("KHÔNG", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        // Do nothing
+                        dialog.dismiss();
+                    }
+                });
+
+                AlertDialog alert = builder.create();
+                alert.show();
             }
         });
 

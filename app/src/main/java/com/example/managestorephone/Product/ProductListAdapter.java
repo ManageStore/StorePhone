@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,6 +27,8 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     Context context;
     List<product> products;
     String gia_format,gianhap_format;
+
+    private int lastPosition = -1;
 
     public ProductListAdapter(List<product> getProductAdapter, Context context) {
         super();
@@ -58,6 +63,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         gianhap_format= NumberFormat.getNumberInstance(Locale.US).format(products.get(position).getGianhap());
         holder.gianhap.setText(gianhap_format+"đ");
 
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -91,4 +97,5 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         products = filteredList;
         notifyDataSetChanged();
     }
+
 }

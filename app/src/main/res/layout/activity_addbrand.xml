@@ -38,7 +38,7 @@
 
         <TextView
             android:id="@+id/addhangImg"
-            android:textColor="#60BA62"
+            android:textColor="#2060CD"
             android:layout_gravity="center"
             android:text="@string/addImage"
             android:textSize="18sp"
