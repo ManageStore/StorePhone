@@ -10,18 +10,18 @@
 
 
     <EditText
-            android:id="@+id/id_search_customer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="5dp"
-            android:background="@drawable/background_edit"
-            android:drawableLeft="@drawable/ic_seach"
-            android:drawablePadding="3dp"
-            android:elevation="3dp"
-            android:hint="Tìm kiếm theo tên"
-            android:padding="10dp" />
+        android:id="@+id/id_search_customer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/background_edit"
+        android:drawableLeft="@drawable/ic_seach"
+        android:drawablePadding="3dp"
+        android:elevation="3dp"
+        android:hint="Tìm kiếm theo tên hoặc sđt KH"
+        android:padding="10dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

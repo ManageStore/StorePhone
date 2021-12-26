@@ -22,7 +22,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="272dp"
         android:background="#E3E3E0"
         android:orientation="vertical">
 
@@ -39,22 +39,22 @@
 
         <TextView
             android:id="@+id/addImg"
-            android:textColor="#2060CD"
-            android:layout_gravity="center"
-            android:text="@string/addImage"
-            android:textSize="18sp"
-            android:fontFamily="@font/lato_regular"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/lato_regular"
+            android:text="@string/addImage"
+            android:textColor="#2060CD"
+            android:textSize="18sp" />
 
         <TextView
-            android:textColor="#E3E3E0"
-            android:text="1"
-            android:textSize="18sp"
             android:id="@+id/mabrand"
-            android:fontFamily="@font/lato_regular"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato_regular"
+            android:text="1"
+            android:textColor="#E3E3E0"
+            android:textSize="18sp" />
 
     </LinearLayout>
 
@@ -86,11 +86,33 @@
                 android:layout_height="wrap_content"/>
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="123dp"
+                android:layout_height="wrap_content"
+                android:textColor="#373b54"
+                android:text="Mô Tả"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/txtmota"
+
+                android:hint="Mô tả"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_marginRight="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 

@@ -62,7 +62,7 @@ public class AddProductActivity extends AppCompatActivity {
     Toolbar toolbar1;
     Button btnLuu;
     Spinner spinner;
-    EditText txttendt,txtsoluong,txtgiaban,txtgianhap;
+    EditText txttendt,txtsoluong,txtgiaban,txtgianhap,txtmota;
     TextView tvThemAnh,tvmabrand;
     CircleImageView imgPhone;
 
@@ -74,7 +74,7 @@ public class AddProductActivity extends AppCompatActivity {
     Bitmap bitmap;
     boolean check = true;
     String mahang;
-    String namePhone,thuonghieu,soluong,giaban,gianhap;
+    String namePhone,thuonghieu,soluong,giaban,gianhap,mota;
 
     String urlPath = Utils.BASE_URL+"android_TH/product/AddProduct.php";
     String urlSelectBrand = Utils.BASE_URL+"android_TH/brand/brand.php";
@@ -94,6 +94,8 @@ public class AddProductActivity extends AppCompatActivity {
         txtsoluong = (EditText) findViewById(R.id.txtsoluong);
         txtgiaban = (EditText) findViewById(R.id.txtgianban);
         txtgianhap = (EditText) findViewById(R.id.txtgianhap);
+        txtmota = (EditText) findViewById(R.id.txtmota);
+
         tvThemAnh = (TextView) findViewById(R.id.addImg);
         tvmabrand = (TextView) findViewById(R.id.mabrand);
         imgPhone = (CircleImageView) findViewById(R.id.image_phone);
@@ -163,6 +165,8 @@ public class AddProductActivity extends AppCompatActivity {
                 giaban = txtgiaban.getText().toString();
                 gianhap = txtgianhap.getText().toString();
                 mahang = tvmabrand.getText().toString();
+                mota = txtmota.getText().toString();
+
 
 
                 addProductFunction();
@@ -171,6 +175,10 @@ public class AddProductActivity extends AppCompatActivity {
                 txtsoluong.setText(null);
                 txtgiaban.setText(null);
                 txtgianhap.setText(null);
+                txtmota.setText(null);
+
+
+
 
             }
         });
@@ -286,6 +294,8 @@ public class AddProductActivity extends AppCompatActivity {
                 params.put("GiaBan",giaban);
                 params.put("GiaNhap",gianhap);
                 params.put("MaHang",mahang);
+                params.put("MoTa",mota);
+
 
                 params.put("HinhAnh",ConvertImage);
 
