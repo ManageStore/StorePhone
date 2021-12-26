@@ -66,6 +66,8 @@ public class ProductsFragment extends Fragment {
     String giaban = "GiaBan";
     String gianhap = "GiaNhap";
     String maSP = "MaSP";
+    String motaSP = "MoTa";
+    String hangSP = "MaHang";
     JsonArrayRequest request,request2;
     RequestQueue requestQueue,requestQueue2;
     RecyclerView.LayoutManager layoutManager,layoutManager2;
@@ -190,9 +192,11 @@ public class ProductsFragment extends Fragment {
 
                         getProduct.setTenSP(jsonObject.getString(ten));
                         getProduct.setMaSP(jsonObject.getInt(maSP));
+                        getProduct.setMotaSP(jsonObject.getString(motaSP));
                         getProduct.setSoluong(jsonObject.getInt(soluong));
                         getProduct.setGiaban(jsonObject.getInt(giaban));
                         getProduct.setGianhap(jsonObject.getInt(gianhap));
+                        getProduct.setHangSP(jsonObject.getInt(hangSP));
 
                         getProduct.setHinhAnh(urlBase.concat(jsonObject.getString(hinhAnh)));
 
