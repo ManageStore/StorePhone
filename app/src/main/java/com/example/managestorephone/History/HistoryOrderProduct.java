@@ -7,7 +7,17 @@ public class HistoryOrderProduct {
     private int MaSP;
     private int SoLuong;
     private String TenSP;
+    private String HinhAnh;
+
     private int GiaTong;
+
+    public String getHinhAnh() {
+        return HinhAnh;
+    }
+
+    public void setHinhAnh(String hinhAnh) {
+        HinhAnh = hinhAnh;
+    }
 
     public int getMaHD() {
         return MaHD;

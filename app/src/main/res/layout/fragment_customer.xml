@@ -29,7 +29,7 @@
                 android:drawableLeft="@drawable/ic_seach"
                 android:drawablePadding="3dp"
                 android:elevation="3dp"
-                android:hint="Tìm kiếm theo tên"
+                android:hint="Tìm kiếm theo tên hoặc sdt"
                 android:padding="10dp" />
 
             <Button

@@ -7,6 +7,8 @@ public class HistoryOrder implements Serializable {
     private int MaKH;
     private String HoTen;
     private String SDT;
+
+
     private int DonGia;
 
     public String getSDT() {

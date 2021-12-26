@@ -166,12 +166,11 @@ public class ProductsFragment extends Fragment {
         List<product> filteredList = new ArrayList<>();
 
         for (product item : listProduct) {
-            if (item.getTenSP().toLowerCase().contains(text.toLowerCase())) {
+            if (item.getTenSP().toLowerCase().contains(text.toLowerCase()) || ("sp000"+item.getMaSP()).contains(text.toLowerCase())) {
                 filteredList.add(item);
 
             }
         }
-
 //        recyclerViewAdapter = new CustomerListAdapter(customerList,getActivity());
         productListAdapter.filterList(filteredList);
 
@@ -189,7 +188,6 @@ public class ProductsFragment extends Fragment {
                     JSONObject jsonObject = null;
                     try {
                         jsonObject = response.getJSONObject(i);
-
                         getProduct.setTenSP(jsonObject.getString(ten));
                         getProduct.setMaSP(jsonObject.getInt(maSP));
                         getProduct.setMotaSP(jsonObject.getString(motaSP));

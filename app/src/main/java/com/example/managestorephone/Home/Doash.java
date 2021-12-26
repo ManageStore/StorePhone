@@ -6,8 +6,16 @@ public class Doash {
     private int SoLuongBan;
     private String TenSP;
     private int DoanhThu;
+    private String HinhAnh;
 
 
+    public String getHinhAnh() {
+        return HinhAnh;
+    }
+
+    public void setHinhAnh(String hinhAnh) {
+        HinhAnh = hinhAnh;
+    }
 
     public int getMaSP() {
         return MaSP;

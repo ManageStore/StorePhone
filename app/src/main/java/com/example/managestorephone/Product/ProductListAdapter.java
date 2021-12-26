@@ -50,7 +50,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
                 .into(holder.imaHinhAnh);
 
 
-        holder.masp.setText(String.valueOf(products.get(position).getMaSP()));
+        holder.masp.setText("SP000".concat(String.valueOf(products.get(position).getMaSP())));
 
         holder.ten.setText(products.get(position).getTenSP());
         holder.soluong.setText(String.valueOf(products.get(position).getSoluong()));

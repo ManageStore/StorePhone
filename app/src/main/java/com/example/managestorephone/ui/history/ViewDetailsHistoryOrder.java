@@ -137,6 +137,8 @@ public class ViewDetailsHistoryOrder extends AppCompatActivity {
                             getHistoryOrderProduct.setSoLuong(jsonObject.getInt("SoLuong"));
                             getHistoryOrderProduct.setMaSP(jsonObject.getInt("MaSP"));
                             getHistoryOrderProduct.setTenSP(jsonObject.getString("TenSP"));
+                            getHistoryOrderProduct.setHinhAnh(Utils.BASE_URL.concat(jsonObject.getString("HinhAnh")));
+
                             historyOrderProductList.add(getHistoryOrderProduct);
 
                         }

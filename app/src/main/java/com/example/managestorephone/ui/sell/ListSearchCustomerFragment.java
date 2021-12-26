@@ -128,7 +128,7 @@ public class ListSearchCustomerFragment extends Fragment {
         List<Customer> filteredList = new ArrayList<>();
 
         for (Customer item : customerList) {
-            if (item.getHoTen().toLowerCase().contains(text.toLowerCase())) {
+            if (item.getHoTen().toLowerCase().contains(text.toLowerCase()) || item.getSDT().contains(text.toLowerCase())){
                 filteredList.add(item);
 
             }
