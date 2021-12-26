@@ -46,7 +46,7 @@ public class HistoryOrderAdapter extends RecyclerView.Adapter<HistoryOrderAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         HistoryOrder historyOrder = historyOrders.get(position);
-        holder.HoTen.setText(". ".concat(historyOrder.getHoTen()));
+        holder.HoTen.setText(". ".concat(historyOrder.getHoTen())+" - "+historyOrder.getSDT());
         holder.MaHD.setText("HD000".concat(String.valueOf(historyOrder.getMaHD())));
         holder.NgayBan.setText(String.valueOf(historyOrder.getNgayBan()));
         dongia_format = NumberFormat.getNumberInstance(Locale.US).format(historyOrder.getDonGia());

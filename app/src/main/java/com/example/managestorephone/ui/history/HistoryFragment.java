@@ -103,7 +103,7 @@ public class HistoryFragment extends Fragment {
         List<HistoryOrder> filteredList = new ArrayList<>();
 
         for (HistoryOrder item : historyOrderList) {
-            if (item.getHoTen().toLowerCase().contains(text.toLowerCase())) {
+            if (item.getHoTen().toLowerCase().contains(text.toLowerCase()) ||  item.getSDT().contains(text) || item.getNgayBan().contains(text)){
                 filteredList.add(item);
 
             }

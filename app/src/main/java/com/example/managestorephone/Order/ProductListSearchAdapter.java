@@ -62,7 +62,7 @@ public class ProductListSearchAdapter extends RecyclerView.Adapter<ProductListSe
                         .getHinhAnh())
                 .into(holder.imaHinhAnh);
 
-        holder.mahang.setText(String.valueOf(products.get(position).getMaSP()));
+        holder.mahang.setText("SP000"+products.get(position).getMaSP());
         holder.ten.setText(products.get(position).getTenSP());
         holder.soluong.setText(String.valueOf(products.get(position).getSoluong()));
 

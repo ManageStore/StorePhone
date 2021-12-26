@@ -85,6 +85,8 @@ public class AddBrandProductActivity extends AppCompatActivity {
                 nameBrand = edtTenhang.getText().toString().trim();
 
                 addBrandFunction();
+                edtTenhang.setText(null);
+
 
             }
         });

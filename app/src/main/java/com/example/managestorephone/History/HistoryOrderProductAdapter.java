@@ -7,12 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.bumptech.glide.Glide;
 import com.example.managestorephone.R;
 import com.example.managestorephone.ui.goods.ViewDetailProduct;
 import com.example.managestorephone.ui.history.ViewDetailsHistoryOrder;
@@ -45,6 +47,12 @@ public class HistoryOrderProductAdapter extends RecyclerView.Adapter<HistoryOrde
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         HistoryOrderProduct historyOrderProduct = historyOrderProducts.get(position);
+
+        Glide.with(context)
+                .load(historyOrderProducts.get(position)
+                        .getHinhAnh())
+                .into(holder.imaHinhAnh);
+
         holder.TenSP.setText(historyOrderProduct.getTenSP());
         holder.MaSP.setText("SP000".concat(String.valueOf(historyOrderProduct.getMaSP())));
         holder.SoLuong.setText("x".concat(String.valueOf(historyOrderProduct.getSoLuong())));
@@ -61,6 +69,7 @@ public class HistoryOrderProductAdapter extends RecyclerView.Adapter<HistoryOrde
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView GiaTong,TenSP,MaSP,SoLuong;
+        public ImageView imaHinhAnh;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -70,6 +79,7 @@ public class HistoryOrderProductAdapter extends RecyclerView.Adapter<HistoryOrde
             TenSP = (TextView) itemView.findViewById(R.id.TenSP);
             SoLuong = (TextView) itemView.findViewById(R.id.SoLuong);
             MaSP = (TextView) itemView.findViewById(R.id.MaSP);
+            imaHinhAnh = (ImageView) itemView.findViewById(R.id.imageviewAnh);
 
 
         }

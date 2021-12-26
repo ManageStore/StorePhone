@@ -133,7 +133,7 @@ private FragmentListSearchProductBinding binding;
         List<product> filteredList = new ArrayList<>();
 
         for (product item : listProduct) {
-            if (item.getTenSP().toLowerCase().contains(text.toLowerCase())) {
+            if (item.getTenSP().toLowerCase().contains(text.toLowerCase()) || ("sp000"+item.getMaSP()).contains(text.toLowerCase())) {
                 filteredList.add(item);
 
             }

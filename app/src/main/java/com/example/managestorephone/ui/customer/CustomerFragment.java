@@ -116,15 +116,16 @@ public class CustomerFragment extends Fragment {
         List<Customer> filteredList = new ArrayList<>();
 
         for (Customer item : customerList) {
-            if (item.getHoTen().toLowerCase().contains(text.toLowerCase())) {
+            if (item.getHoTen().toLowerCase().contains(text.toLowerCase()) || item.getSDT().contains(text.toLowerCase())){
                 filteredList.add(item);
+
+
 
             }
         }
 
-//        recyclerViewAdapter = new CustomerListAdapter(customerList,getActivity());
-        customerListAdapter.filterList(filteredList);
 
+        customerListAdapter.filterList(filteredList);
 
     }
 

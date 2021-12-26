@@ -93,6 +93,9 @@
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/drawable/circle_background_views.xml" value="0.2703125" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/drawable/customer_item_bc.xml" value="0.2703125" />
+        <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/drawable/home_customer.xml" value="0.2703125" />
+        <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/drawable/home_doanhthu.xml" value="0.2703125" />
+        <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/drawable/home_order.xml" value="0.2703125" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/drawable/ic_bag.xml" value="0.2703125" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/drawable/ic_customer.xml" value="0.2703125" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/drawable/ic_dashboard.xml" value="0.2703125" />
@@ -133,6 +136,7 @@
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/history_order_product_item.xml" value="0.25416666666666665" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/nav_header_main.xml" value="0.13020833333333334" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/order_item.xml" value="0.264" />
+        <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/layout/product_item.xml" value="0.25416666666666665" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/menu/activity_main_drawer.xml" value="0.25416666666666665" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/menu/main.xml" value="0.25416666666666665" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/menu/menu_action.xml" value="0.13020833333333334" />
