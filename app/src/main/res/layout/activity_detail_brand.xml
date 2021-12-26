@@ -23,12 +23,11 @@
         android:src="@drawable/oppo" />
 
     <TextView
-        android:background="#60BA62"
         android:id="@+id/tvupdateImg"
         android:padding="10dp"
-        android:textColor="#ffffff"
+        android:textColor="#2060CD"
         android:layout_gravity="center"
-        android:text="Sửa ảnh"
+        android:text="@string/addImage"
         android:textSize="18sp"
         android:fontFamily="@font/lato_regular"
         android:layout_width="wrap_content"

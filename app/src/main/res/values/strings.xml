@@ -27,4 +27,9 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_detailed">DetailedActivity</string>
+
+    <string name="addImage"><u>Thêm ảnh</u></string>
+    <string name="updateImage"><u>Sửa ảnh</u></string>
+    <string name="addImageCus"><u>Thêm ảnh đại diện</u></string>
+
 </resources>

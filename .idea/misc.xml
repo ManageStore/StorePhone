@@ -65,6 +65,31 @@
         <entry key="..\:/LTDD/THa/manageStore/StorePhone/app/src/main/res/layout/fragment_setting.xml" value="0.2" />
         <entry key="..\:/LTDD/THa/manageStore/StorePhone/app/src/main/res/menu/activity_main_drawer.xml" value="0.2546875" />
         <entry key="..\:/LTDD/THa/manageStore/StorePhone/app/src/main/res/menu/main.xml" value="0.2546875" />
+        <entry key="..\:/LTDD/THa/storePhone/StorePhone/app/src/main/res/drawable/ic_person_add.xml" value="0.21940928270042195" />
+        <entry key="..\:/LTDD/THa/storePhone/StorePhone/app/src/main/res/layout/activity_addbrand.xml" value="0.20897435897435898" />
+        <entry key="..\:/LTDD/THa/storePhone/StorePhone/app/src/main/res/layout/activity_addcustomer.xml" value="0.20897435897435898" />
+        <entry key="..\:/LTDD/THa/storePhone/StorePhone/app/src/main/res/layout/activity_addproduct.xml" value="0.20897435897435898" />
+        <entry key="..\:/LTDD/THa/storePhone/StorePhone/app/src/main/res/layout/activity_detail_brand.xml" value="0.20897435897435898" />
+        <entry key="..\:/LTDD/THa/storePhone/StorePhone/app/src/main/res/layout/activity_detail_customer.xml" value="0.2" />
+        <entry key="..\:/LTDD/THa/storePhone/StorePhone/app/src/main/res/layout/activity_detail_history_order.xml" value="0.20897435897435898" />
+        <entry key="..\:/LTDD/THa/storePhone/StorePhone/app/src/main/res/layout/activity_detail_product.xml" value="0.20897435897435898" />
+        <entry key="..\:/LTDD/THa/storePhone/StorePhone/app/src/main/res/layout/activity_login.xml" value="0.20897435897435898" />
+        <entry key="..\:/LTDD/THa/storePhone/StorePhone/app/src/main/res/layout/app_bar_main.xml" value="0.20897435897435898" />
+        <entry key="..\:/LTDD/THa/storePhone/StorePhone/app/src/main/res/layout/brand_item.xml" value="0.20897435897435898" />
+        <entry key="..\:/LTDD/THa/storePhone/StorePhone/app/src/main/res/layout/customer_item.xml" value="0.20897435897435898" />
+        <entry key="..\:/LTDD/THa/storePhone/StorePhone/app/src/main/res/layout/fragment_customer.xml" value="0.20897435897435898" />
+        <entry key="..\:/LTDD/THa/storePhone/StorePhone/app/src/main/res/layout/fragment_history.xml" value="0.20897435897435898" />
+        <entry key="..\:/LTDD/THa/storePhone/StorePhone/app/src/main/res/layout/fragment_home.xml" value="0.20897435897435898" />
+        <entry key="..\:/LTDD/THa/storePhone/StorePhone/app/src/main/res/layout/fragment_list_search_customer.xml" value="0.20897435897435898" />
+        <entry key="..\:/LTDD/THa/storePhone/StorePhone/app/src/main/res/layout/fragment_list_search_product.xml" value="0.20897435897435898" />
+        <entry key="..\:/LTDD/THa/storePhone/StorePhone/app/src/main/res/layout/fragment_products.xml" value="0.20897435897435898" />
+        <entry key="..\:/LTDD/THa/storePhone/StorePhone/app/src/main/res/layout/fragment_sell.xml" value="0.2" />
+        <entry key="..\:/LTDD/THa/storePhone/StorePhone/app/src/main/res/layout/fragment_setting.xml" value="0.20897435897435898" />
+        <entry key="..\:/LTDD/THa/storePhone/StorePhone/app/src/main/res/layout/history_item.xml" value="0.20897435897435898" />
+        <entry key="..\:/LTDD/THa/storePhone/StorePhone/app/src/main/res/layout/history_order_product_item.xml" value="0.20897435897435898" />
+        <entry key="..\:/LTDD/THa/storePhone/StorePhone/app/src/main/res/layout/nav_header_main.xml" value="0.20897435897435898" />
+        <entry key="..\:/LTDD/THa/storePhone/StorePhone/app/src/main/res/layout/order_item.xml" value="0.20897435897435898" />
+        <entry key="..\:/LTDD/THa/storePhone/StorePhone/app/src/main/res/layout/product_item.xml" value="0.20897435897435898" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/drawable/circle_background_views.xml" value="0.2703125" />
         <entry key="..\:/LTDD/ThucHanh/ManageStorePhone/StorePhone/app/src/main/res/drawable/customer_item_bc.xml" value="0.2703125" />

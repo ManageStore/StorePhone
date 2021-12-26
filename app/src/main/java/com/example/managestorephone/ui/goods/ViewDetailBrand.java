@@ -1,6 +1,7 @@
 package com.example.managestorephone.ui.goods;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
@@ -112,10 +114,34 @@ public class ViewDetailBrand extends AppCompatActivity {
 
                 MaHang = mahang.getText().toString();
 
-                deleteBrandFunction(MaHang);
-                onSupportNavigateUp();
+                AlertDialog.Builder builder = new AlertDialog.Builder(ViewDetailBrand.this);
 
+                builder.setTitle("Xác nhận");
+                builder.setMessage("Bạn có chắc không?");
 
+                builder.setPositiveButton("CÓ", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        // Do nothing, but close the dialog
+                        deleteBrandFunction(MaHang);
+                        onSupportNavigateUp();
+
+                    }
+                });
+
+                builder.setNegativeButton("KHÔNG", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        // Do nothing
+                        dialog.dismiss();
+                    }
+                });
+
+                AlertDialog alert = builder.create();
+                alert.show();
 
             }
         });
@@ -327,20 +353,20 @@ public class ViewDetailBrand extends AppCompatActivity {
                             String success = jsonObject.getString("success");
 
                             if(success.equals("1")){
-                                Toast.makeText(ViewDetailBrand.this, "Success", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ViewDetailBrand.this, "Thành công", Toast.LENGTH_SHORT).show();
                             }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
                             progressDialog.dismiss();
-                            Toast.makeText(ViewDetailBrand.this, "Error" + e.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ViewDetailBrand.this, "Không thành công", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 progressDialog.dismiss();
-                Toast.makeText(ViewDetailBrand.this, "Error" + error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ViewDetailBrand.this, "Không thành công", Toast.LENGTH_SHORT).show();
             }
         }
         ){
@@ -361,7 +387,7 @@ public class ViewDetailBrand extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
 
         onBackPressed();
-
+        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
         return true;
     }
 

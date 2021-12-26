@@ -208,12 +208,12 @@ public class SellFragment extends Fragment{
             public void onResponse(String response) {
 
                 if(response.equals("You are successfully")){
-                    Toast.makeText(getActivity(), "Thanh Toán thành công!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Thanh Toán thành công", Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();
 
                 }else{
                     progressDialog.dismiss();
-                    Toast.makeText(getActivity(), response, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Thanh Toán thành công", Toast.LENGTH_SHORT).show();
                     Utils.manggiohang.clear();
                     Utils.khachhang=null;
                     SellFragment sellFragment= new SellFragment();

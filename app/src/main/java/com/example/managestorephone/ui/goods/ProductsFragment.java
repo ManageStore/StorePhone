@@ -7,6 +7,8 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -83,6 +85,7 @@ public class ProductsFragment extends Fragment {
 
 
                 startActivity(new Intent(getContext(), AddProductActivity.class));
+                getActivity().overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
 
             }
@@ -104,6 +107,7 @@ public class ProductsFragment extends Fragment {
             public void onClick(View view) {
 
                 startActivity(new Intent(getContext(), AddBrandProductActivity.class));
+                getActivity().overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
 
             }
@@ -146,10 +150,11 @@ public class ProductsFragment extends Fragment {
         });
 
 
-
-
         return root;
     }
+
+
+
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 

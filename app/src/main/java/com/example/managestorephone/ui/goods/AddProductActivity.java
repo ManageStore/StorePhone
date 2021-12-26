@@ -260,7 +260,7 @@ public class AddProductActivity extends AppCompatActivity {
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                progressDialog = ProgressDialog.show(AddProductActivity.this,"Image is Uploading","Please Wait",false,false);
+                progressDialog = ProgressDialog.show(AddProductActivity.this,"Loading...","Please Wait",false,false);
             }
 
             @Override
@@ -270,7 +270,7 @@ public class AddProductActivity extends AppCompatActivity {
                 progressDialog.dismiss();
 
                 // Printing uploading success message coming from server on android app.
-                Toast.makeText(AddProductActivity.this,s,Toast.LENGTH_LONG).show();
+                Toast.makeText(AddProductActivity.this,"Thêm thành công",Toast.LENGTH_LONG).show();
 
                 // Setting image as transparent after done uploading.
                 imgPhone.setImageResource(android.R.color.transparent);
@@ -394,6 +394,7 @@ public class AddProductActivity extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
+        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
         return true;
     }
 

@@ -24,6 +24,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.managestorephone.LoginActivity;
 import com.example.managestorephone.MainActivity;
+import com.example.managestorephone.R;
 import com.example.managestorephone.databinding.FragmentSettingBinding;
 import com.example.managestorephone.utils.Utils;
 
@@ -88,6 +89,9 @@ public class SettingFragment extends Fragment {
 
                         // Do nothing, but close the dialog
                         startActivity(new Intent(getContext(), LoginActivity.class));
+                        getActivity().overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
+
+
                     }
                 });
 

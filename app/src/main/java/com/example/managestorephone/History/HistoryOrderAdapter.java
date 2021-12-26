@@ -85,6 +85,7 @@ public class HistoryOrderAdapter extends RecyclerView.Adapter<HistoryOrderAdapte
         historyOrders = filteredList;
         notifyDataSetChanged();
     }
+
 };
 
 
