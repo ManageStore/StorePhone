@@ -28,8 +28,6 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     List<product> products;
     String gia_format,gianhap_format;
 
-    private int lastPosition = -1;
-
     public ProductListAdapter(List<product> getProductAdapter, Context context) {
         super();
         this.context = context;

@@ -137,7 +137,6 @@ public class AddProductActivity extends AppCompatActivity {
         );
         requestQueue.add(jsonArrayRequest);
 
-//        thuonghieu = spinner.getSelectedItem().toString();
         spinner.setOnItemSelectedListener(selectBrand);
 
 

@@ -13,9 +13,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,23 +33,27 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.example.managestorephone.LoginActivity;
 import com.example.managestorephone.MainActivity;
+import com.example.managestorephone.Product.Brand;
 import com.example.managestorephone.Product.ProductListAdapter;
 import com.example.managestorephone.Product.product;
 import com.example.managestorephone.R;
 import com.example.managestorephone.ui.sell.SellFragment;
 import com.example.managestorephone.utils.Utils;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -61,21 +67,24 @@ public class ViewDetailProduct extends AppCompatActivity {
     ImageView imgProduct;
     Button btDel;
     TextView tvMasp, updateImg;
-    EditText tvTen, tvGia, tvGiaNhap, tvSoluong;
+    EditText tvTen, tvGia, tvGiaNhap, tvSoluong,tvMota;
     String gia_format, gianhap_format;
     Toolbar toolbar;
 
-    String Masp, Tensp, soluongsp, giabansp, gianhapsp;
+    String Masp, Tensp, soluongsp, giabansp, gianhapsp,motasp;
     String gia_ban, gia_nhap;
     boolean check = true;
     Bitmap bitmap;
     Menu action;
 
-    ProductListAdapter productListAdapter;
+    ArrayList<String> brandList = new ArrayList<>();
+    ArrayAdapter<String> brandAdapter;
+    RequestQueue requestQueue;
 
     String url_edit = Utils.BASE_URL+"android_TH/product/upload_detail_product.php";
     String url_edit_img = Utils.BASE_URL+"android_TH/product/upload_img_product.php";
     String url_del_product = Utils.BASE_URL+"android_TH/product/deleteproduct.php";
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -94,6 +103,7 @@ public class ViewDetailProduct extends AppCompatActivity {
         updateImg = (TextView) findViewById(R.id.updateImg);
         imgProduct = (ImageView) findViewById(R.id.imgProduct);
         tvTen = (EditText) findViewById(R.id.detail_ten);
+        tvMota = (EditText) findViewById(R.id.detail_mota);
         tvSoluong = (EditText) findViewById(R.id.detail_soluong);
         tvGia = (EditText) findViewById(R.id.detail_gia);
         tvGiaNhap = (EditText) findViewById(R.id.detail_gianhap);
@@ -104,6 +114,7 @@ public class ViewDetailProduct extends AppCompatActivity {
             tvTen.setText(Product.getTenSP());
             tvMasp.setText(String.valueOf(Product.getMaSP()));
             tvSoluong.setText(String.valueOf(Product.getSoluong()));
+            tvMota.setText(Product.getMotaSP());
 
             gia_ban = String.valueOf(Product.getGiaban());
             gia_nhap = String.valueOf(Product.getGianhap());
@@ -112,6 +123,7 @@ public class ViewDetailProduct extends AppCompatActivity {
             tvGia.setText(gia_format + "đ");
             gianhap_format = NumberFormat.getNumberInstance(Locale.US).format(Product.getGianhap());
             tvGiaNhap.setText(gianhap_format + "đ");
+
         }
 
 
@@ -188,6 +200,7 @@ public class ViewDetailProduct extends AppCompatActivity {
                 tvSoluong.setFocusableInTouchMode(true);
                 tvGia.setFocusableInTouchMode(true);
                 tvGiaNhap.setFocusableInTouchMode(true);
+                tvMota.setFocusableInTouchMode(true);
 
                 action.findItem(R.id.menu_edit).setVisible(false);
                 action.findItem(R.id.menu_save).setVisible(true);
@@ -201,6 +214,7 @@ public class ViewDetailProduct extends AppCompatActivity {
                 giabansp = tvGia.getText().toString();
                 gianhapsp = tvGiaNhap.getText().toString();
                 Tensp = tvTen.getText().toString();
+                motasp = tvMota.getText().toString();
 
                 updateProductFunction();
 
@@ -216,8 +230,10 @@ public class ViewDetailProduct extends AppCompatActivity {
                 tvSoluong.setFocusableInTouchMode(false);
                 tvGia.setFocusableInTouchMode(false);
                 tvGiaNhap.setFocusableInTouchMode(false);
+                tvMota.setFocusableInTouchMode(false);
 
                 tvTen.setFocusable(false);
+                tvMota.setFocusable(false);
                 tvSoluong.setFocusable(false);
                 tvGia.setFocusable(false);
                 tvGiaNhap.setFocusable(false);
@@ -361,6 +377,7 @@ public class ViewDetailProduct extends AppCompatActivity {
                 params.put("GiaBan",giabansp);
                 params.put("GiaNhap",gianhapsp);
                 params.put("MaSP",Masp);
+                params.put("MoTa",motasp);
 
                 return params;
             }

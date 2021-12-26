@@ -10,6 +10,24 @@ public class product implements Serializable {
     private int gianhap;
     private int giaban;
     private int maSP;
+    private int hangSP;
+    private String motaSP;
+
+    public String getMotaSP() {
+        return motaSP;
+    }
+
+    public void setMotaSP(String motaSP) {
+        this.motaSP = motaSP;
+    }
+
+    public int getHangSP() {
+        return hangSP;
+    }
+
+    public void setHangSP(int hangSP) {
+        this.hangSP = hangSP;
+    }
 
     public int getMaSP() {
         return maSP;
